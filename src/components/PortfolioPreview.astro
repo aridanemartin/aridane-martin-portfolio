@@ -12,7 +12,6 @@ const { data, slug } = Astro.props.project;
   <span class="title">{data.title}</span>
   <img
     transition:name=`project-image-${slug}`
-    transition:animate="fade"
     src={data.img}
     alt={data.img_alt || ""}
     loading="lazy"

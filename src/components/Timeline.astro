@@ -11,8 +11,15 @@ const { content } = Astro.props;
         <div class="timeline-item-content">
           <h2>{item.title}</h2>
           <p>{item.year}</p>
-          <p>{item.description}</p>
-          {/* <Image src={item.image} alt={item.alt} width={100} height={20} /> */}
+          <p class="timeline-item-description">{item.description}</p>
+          <Image
+            src={item.image}
+            alt={item.imageDescription}
+            class="timeline-item-image"
+            width={300}
+            height={40}
+          />
+          <p class="timeline-item-image-description">{item.imageDescription}</p>
         </div>
       </li>
     ))
@@ -33,16 +40,47 @@ const { content } = Astro.props;
 
     &:nth-child(odd) {
       float: right;
-      text-align: right;
       clear: both;
       border-left: 3px solid var(--gray-200);
     }
 
     &:nth-child(even) {
       float: left;
-      text-align: left;
       clear: both;
       border-right: 3px solid var(--gray-200);
+    }
+  }
+
+  .timeline-item-content {
+    padding: 1rem;
+  }
+
+  .timeline-item-description {
+    margin: 16px 0;
+  }
+
+  .timeline-item-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  .timeline-item-image-description {
+    font-style: italic;
+    font-size: 12px;
+    color: var(--gray-200);
+    margin-top: 0.5rem;
+  }
+
+  @media (width < 768px) {
+    .timeline-item {
+      border-left: 3px solid var(--gray-200);
+      width: 100%;
+
+      &:nth-child(even) {
+        border-right: none;
+      }
     }
   }
 </style>

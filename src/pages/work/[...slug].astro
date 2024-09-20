@@ -49,7 +49,6 @@ const { Content } = await entry.render();
             entry.data.img && (
               <img
                 transition:name={`project-image-${entry.slug}`}
-                transition:animate="fade"
                 src={entry.data.img}
                 alt={entry.data.img_alt || ""}
               />
