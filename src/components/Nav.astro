@@ -10,7 +10,7 @@ const textLinks: { label: string; href: string }[] = [
   { label: "Home", href: "/" },
   { label: "Work", href: "/work/" },
   { label: "About", href: "/about/" },
-  { label: "Blog", href: "/blog/" },
+  // { label: "Blog", href: "/blog/" },
 ];
 
 /** Icon links to social media — edit these with links to your profiles! */
@@ -19,33 +19,25 @@ const iconLinks: {
   href: string;
   icon: keyof typeof iconPaths;
 }[] = [
-  // { label: "Twitter", href: "https://twitter.com/me", icon: "twitter-logo" },
-  // { label: "Twitch", href: "https://twitch.tv/me", icon: "twitch-logo" },
   {
     label: "GitHub",
     href: "https://github.com/aridanemartin",
     icon: "github-logo",
   },
   // { label: "CodePen", href: "https://codepen.io/me", icon: "codepen-logo" },
-  // { label: "dribbble", href: "https://dribbble.com/me", icon: "dribbble-logo" },
-  // {
-  //   label: "YouTube",
-  //   href: "https://www.youtube.com/@me/",
-  //   icon: "youtube-logo",
-  // },
 ];
 ---
 
 <nav>
   <div class="menu-header">
     <a href="/" class="site-title">
-      <Icon
-        icon="terminal-window"
-        color="var(--accent-regular)"
-        size="1.6em"
-        gradient
+      <Image
+        class="main-logo"
+        src={aridaneLogo}
+        alt="Aridane Martín"
+        width="150"
+        height="50"
       />
-      <Image src={aridaneLogo} alt="Aridane Martín" width="150" height="50" />
     </a>
     <menu-button>
       <template>
@@ -189,6 +181,10 @@ const iconLinks: {
     padding: 1.5rem;
   }
 
+  .main-logo {
+    filter: var(--button-main-color-filter);
+  }
+
   .site-title {
     display: flex;
     gap: 0.5rem;
@@ -302,7 +298,7 @@ const iconLinks: {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      padding: 2.5rem 5rem;
+      padding: 2.5rem 4rem;
       gap: 1rem;
     }
 
