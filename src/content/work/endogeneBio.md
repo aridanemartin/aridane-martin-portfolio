@@ -1,6 +1,6 @@
 ---
 title: endogene.bio Website
-publishDate: 2019-10-02 00:00:00
+publishDate: 2024-10-02 00:00:00
 img: /assets/works/endogeneBio.webp
 img_alt: Soft pink and baby blue water ripples together in a subtle texture.
 description: |
@@ -9,6 +9,7 @@ description: |
 tags:
   - Design
   - Branding
+url: https://www.endogene.bio
 ---
 
 > Endogene.bio - Advancing Female Health Through Precision Medicine

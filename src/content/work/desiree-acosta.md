@@ -1,6 +1,6 @@
 ---
 title: Desiree Acosta Website
-publishDate: 2019-10-02 00:00:00
+publishDate: 2024-10-02 00:00:00
 img: /assets/works/desireeAcosta.webp
 img_alt: Soft pink and baby blue water ripples together in a subtle texture.
 description: |
@@ -8,6 +8,7 @@ description: |
 tags:
   - Design
   - Branding
+url: https://desiacostanutricion.com
 ---
 
 > A clean and minimal design for a specialized Women's Health Nutritionist

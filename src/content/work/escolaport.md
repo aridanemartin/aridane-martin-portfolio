@@ -9,9 +9,10 @@ tags:
   - Design
   - Dev
   - Branding
+url: https://www.escolaportbarcelona.com
 ---
 
-### Escola Port 
+### Escola Port
 
 Escola Port is Barcelona’s premier nautical school, offering the best online platform for nautical courses. With a fleet of their own vessels, they provide both theory and practical sessions in one place, ensuring flexibility and weekly availability. Their highly trained instructors, high pass rates, and exclusive benefits for alumni make Escola Port the most recognized nautical institution in the city.
 
