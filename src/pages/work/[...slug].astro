@@ -57,6 +57,15 @@ const { Content } = await entry.render();
           <div class="content">
             <Content />
           </div>
+          <div class="url">
+            {
+              entry.data.url && (
+                <a href={entry.data.url} target="_blank" rel="noopener">
+                  {entry.data.url}
+                </a>
+              )
+            }
+          </div>
         </div>
       </main>
     </div>

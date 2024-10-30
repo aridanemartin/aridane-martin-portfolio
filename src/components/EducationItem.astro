@@ -1,34 +1,34 @@
 ---
-import { educationContent } from "../content/about/educationContent";
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  description?: string | undefined;
+  year: string;
+  logoImage: string;
+  logoImageDescription: string;
+}
+
+const { title, description, year, logoImage, logoImageDescription } =
+  Astro.props;
 ---
 
-<ul class="education-item-list">
-  {
-    educationContent.map((item) => (
-      <li class="education-item">
-        <img
-          class="education-item-image"
-          src={item.logoImage}
-          alt={item.logoImageDescription}
-        />
-        <div class="education-item-content">
-          <h2 class="secondary-title">{item.title}</h2>
-          <p>{item.description}</p>
-        </div>
-      </li>
-    ))
-  }
-</ul>
+<li class="education-item">
+  <Image
+    class="education-item-image"
+    src={logoImage}
+    alt={logoImageDescription}
+    width={75}
+    height={75}
+  />
+  <div class="education-item-content">
+    <h2 class="secondary-title">{title}</h2>
+    <p class="item-description">{description}</p>
+    <p class="item-date-range">{year}</p>
+  </div>
+</li>
 
 <style>
-  .education-item-list {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-    gap: 30px;
-  }
-
   .education-item {
     display: flex;
     gap: 20px;
@@ -44,9 +44,30 @@ import { educationContent } from "../content/about/educationContent";
     margin: 0;
   }
 
+  summary {
+    overflow: hidden;
+    overflow: clip;
+  }
+
+  summary > *:first-child {
+    transition: margin-top 500ms ease-out;
+  }
+
+  summary > *:first-child details:not([open]) + & {
+    margin-top: -20em;
+  }
+
   @media (width < 800px) {
     .secondary-title {
-      font-size: 1.25rem;
+      font-size: var(--text-base);
+    }
+
+    .item-description {
+      font-size: var(--text-sm);
+    }
+
+    .item-date-range {
+      font-size: var(--text-xs);
     }
   }
 </style>

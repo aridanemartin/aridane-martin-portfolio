@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import flagIcon from "../../public/assets/icons/flag.png";
 
 const { content } = Astro.props;
 ---
@@ -9,8 +10,19 @@ const { content } = Astro.props;
     content.map((item) => (
       <li class="timeline-item">
         <div class="timeline-item-content">
-          <h2>{item.title}</h2>
-          <p>{item.year}</p>
+          <div class="timeline-title-wrapper">
+            <Image
+              class="timeline-flag-icon"
+              src={flagIcon}
+              alt="flag"
+              width={35}
+              height={35}
+            />
+            <div class="timeline-title-text">
+              <h2 class="timeline-title">{item.title}</h2>
+              <p class="timeline-year">{item.year}</p>
+            </div>
+          </div>
           <p class="timeline-item-description">{item.description}</p>
           <Image
             src={item.image}
@@ -41,17 +53,36 @@ const { content } = Astro.props;
     &:nth-child(odd) {
       float: right;
       clear: both;
-      border-left: 3px solid var(--gray-200);
+      border-left: 2px dashed var(--gray-200);
     }
 
     &:nth-child(even) {
       float: left;
       clear: both;
-      border-right: 3px solid var(--gray-200);
+      border-right: 2px dashed var(--gray-200);
+    }
+
+    &:first-child .timeline-item-content {
+      margin-top: 0;
     }
   }
 
+  .timeline-flag-icon {
+    filter: var(--filter-invert);
+  }
+
+  .timeline-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .timeline-title {
+    font-size: var(--text-lg);
+  }
+
   .timeline-item-content {
+    margin-top: -300px;
     padding: 1rem;
   }
 
@@ -75,12 +106,17 @@ const { content } = Astro.props;
 
   @media (width < 768px) {
     .timeline-item {
-      border-left: 3px solid var(--gray-200);
+      border-left: 2px solid var(--gray-200);
       width: 100%;
 
       &:nth-child(even) {
         border-right: none;
+        border-left: 2px dashed var(--gray-200);
       }
+    }
+
+    .timeline-item-content {
+      margin-top: 0;
     }
   }
 </style>

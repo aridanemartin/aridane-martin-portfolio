@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import { educationContent } from "../content/about/educationContent";
+import EducationItem from "./EducationItem.astro";
+
+const firstItems = educationContent.slice(0, 3);
+const restItems = educationContent.slice(3);
+---
+
+<ul class="education-item-list">
+  {firstItems.map((item) => <EducationItem {...item} />)}
+  <details>
+    <summary> See more </summary>
+  </details>
+  <ul class="education-item-list details-content">
+    {restItems.map((item) => <EducationItem {...item} />)}
+  </ul>
+</ul>
+
+<style>
+  .education-item-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    gap: 30px;
+  }
+
+  .details-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+
+  details[open] + .details-content {
+    height: 650px;
+  }
+
+  details[open] {
+    display: none;
+  }
+
+  @media (width > 800px) {
+    details[open] + .details-content {
+      height: 700px;
+    }
+  }
+</style>
