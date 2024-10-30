@@ -5,6 +5,7 @@ import ContactCTA from "../components/ContactCTA.astro";
 import Hero from "../components/Hero.astro";
 import Timeline from "../components/Timeline.astro";
 import { timelineContent } from "../content/about/timelineContent";
+import EducationItem from "../components/EducationItem.astro";
 ---
 
 <BaseLayout
@@ -46,18 +47,17 @@ import { timelineContent } from "../content/about/timelineContent";
       </section>
       <section>
         <h2 class="section-title">Education</h2>
-        <div class="content">
-          <p>Corporis voluptates tenetur laudantium.</p>
-        </div>
+        <EducationItem />
       </section>
-      <section>
+      <!-- <section>
         <h2 class="section-title">Skills</h2>
         <div class="content">
           <p>officia unde omnis</p>
         </div>
-      </section>
+      </section> -->
     </main>
     <div class="wrapper">
+      <h2 class="section-title">Milestones</h2>
       <Timeline content={timelineContent} />
     </div>
 
@@ -89,6 +89,7 @@ import { timelineContent } from "../content/about/timelineContent";
     grid-column-start: 1;
     font-size: var(--text-xl);
     color: var(--gray-0);
+    padding-bottom: 1rem;
   }
 
   .content {
@@ -107,6 +108,10 @@ import { timelineContent } from "../content/about/timelineContent";
   }
 
   @media (min-width: 50em) {
+    .section-title {
+      padding: 0;
+    }
+
     .about {
       display: grid;
       grid-template-columns: 1fr 60% 1fr;

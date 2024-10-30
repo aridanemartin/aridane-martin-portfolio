@@ -1,0 +1,52 @@
+---
+import { educationContent } from "../content/about/educationContent";
+---
+
+<ul class="education-item-list">
+  {
+    educationContent.map((item) => (
+      <li class="education-item">
+        <img
+          class="education-item-image"
+          src={item.logoImage}
+          alt={item.logoImageDescription}
+        />
+        <div class="education-item-content">
+          <h2 class="secondary-title">{item.title}</h2>
+          <p>{item.description}</p>
+        </div>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .education-item-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    gap: 30px;
+  }
+
+  .education-item {
+    display: flex;
+    gap: 20px;
+  }
+
+  .education-item-image {
+    width: 75px;
+    height: 75px;
+  }
+
+  .secondary-title {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  @media (width < 800px) {
+    .secondary-title {
+      font-size: 1.25rem;
+    }
+  }
+</style>
