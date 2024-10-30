@@ -2,7 +2,7 @@ export const educationContent = [
   {
     title: "UOC: Univesitat Oberta de Catalunya",
     year: "2024",
-    description: "Computer Science",
+    description: "Computer Science (Currently studying)",
     logoImage: "/assets/educationLogos/uocLogo.webp",
     logoImageDescription: "UOC: Univesitat Oberta de Catalunya logo",
   },
