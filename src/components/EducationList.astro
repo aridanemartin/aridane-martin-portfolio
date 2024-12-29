@@ -10,7 +10,7 @@ const restItems = educationContent.slice(3);
 <ul class="education-item-list">
   {firstItems.map((item) => <EducationItem {...item} />)}
   <details>
-    <summary> See more </summary>
+    <summary> See more... </summary>
   </details>
   <ul class="education-item-list details-content">
     {restItems.map((item) => <EducationItem {...item} />)}
@@ -18,6 +18,10 @@ const restItems = educationContent.slice(3);
 </ul>
 
 <style>
+  details summary:hover {
+    cursor: pointer;
+  }
+
   .education-item-list {
     display: flex;
     flex-direction: column;
@@ -32,7 +36,7 @@ const restItems = educationContent.slice(3);
     gap: 30px;
     height: 0;
     overflow: hidden;
-    transition: all 0.5s ease;
+    transition: all 1s ease;
   }
 
   details[open] + .details-content {

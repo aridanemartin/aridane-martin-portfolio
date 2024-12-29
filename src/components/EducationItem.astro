@@ -44,19 +44,6 @@ const { title, description, year, logoImage, logoImageDescription } =
     margin: 0;
   }
 
-  summary {
-    overflow: hidden;
-    overflow: clip;
-  }
-
-  summary > *:first-child {
-    transition: margin-top 500ms ease-out;
-  }
-
-  summary > *:first-child details:not([open]) + & {
-    margin-top: -20em;
-  }
-
   @media (width < 800px) {
     .secondary-title {
       font-size: var(--text-base);
