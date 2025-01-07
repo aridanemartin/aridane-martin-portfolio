@@ -4,11 +4,11 @@ publishDate: 2019-10-02 00:00:00
 img: /assets/works/roshni.webp
 img_alt: Roshni Peswani Nutritionist Logo
 description: |
-  We developed brand positioning and design assets for the launch
-  of a new colored water product.
+  Healthcare website
 tags:
   - Design
   - Branding
+  - CMS
 url: https://www.roshninutricion.com
 ---
 
