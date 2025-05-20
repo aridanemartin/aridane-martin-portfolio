@@ -2,8 +2,7 @@ export const timelineContent = [
   {
     title: "Openbank",
     year: "2024",
-    description:
-      "As part of the consulting company I work for (Knowmadmood), I was assigned to Openbank, a digital bank that operates in Spain. I was responsible for developing and maintaining the front-end of the Call Center build in hexagonal architecture and event driven design using react and typescript as the chosen stack in a challenging project.",
+    description: "As part of my work at Openbank, I contributed as a Senior Frontend Developer within the UK Cards domain, where we applied Hexagonal Architecture and Domain-Driven Design (DDD) principles to build robust and scalable solutions. Later, I took on the role of Tech Lead in the integration of the Pandora cash register software for the Polish market, leading the frontend efforts in a highly collaborative and cross-functional environment.",
     image: "/assets/timeline/SCNPA.webp",
     imageDescription:
       "With my dear friends Juanma and Carlos at the SCNPA conference.",
