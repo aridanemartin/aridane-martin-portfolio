@@ -1,28 +1,22 @@
 ---
-import { getCollection } from 'astro:content';
+import BlogList from '../components/BlogList.astro';
 import ContactCTA from '../components/ContactCTA.astro';
-import Grid from '../components/Grid.astro';
 import Hero from '../components/Hero.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
-import Timeline from '../components/Timeline.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const projects = (await getCollection('work')).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-);
 ---
 
 <BaseLayout
-  title="My Work | Aridane Martín"
-  description="Learn about Aridane Martín's most recent projects"
+  title="Blog | Aridane Martín"
+  description="Read about development, productivity, and insights from Aridane Martín's experience"
 >
   <div class="stack gap-20">
     <main class="wrapper stack gap-8">
       <Hero
-        title="My Work"
-        tagline="See my most recent projects below to get an idea of my past experience."
+        title="Blog"
+        tagline="Thoughts on development, productivity, and the craft of software engineering."
         align="start"
       />
+      <BlogList />
     </main>
     <ContactCTA />
   </div>

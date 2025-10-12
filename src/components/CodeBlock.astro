@@ -1,0 +1,259 @@
+---
+interface Props {
+  code: string;
+  language?: string;
+  filename?: string;
+}
+
+const { code, language = "text", filename } = Astro.props;
+---
+
+<div class="code-block">
+  {
+    filename && (
+      <div class="code-header">
+        <span class="filename">{filename}</span>
+        <button class="copy-button" data-code={code}>
+          <svg
+            class="copy-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+          </svg>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+    )
+  }
+  <pre
+    class="code-content"><code class={`language-${language}`}>{code}</code></pre>
+</div>
+
+<style>
+  .code-block {
+    position: relative;
+    background: var(--gray-999);
+    border: 1px solid var(--gray-800);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    margin: 1.5rem 0;
+  }
+
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--gray-900);
+    border-bottom: 1px solid var(--gray-800);
+    font-size: var(--text-sm);
+  }
+
+  .filename {
+    color: var(--gray-400);
+    font-family: var(--font-system);
+    font-weight: 500;
+  }
+
+  .copy-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    background: var(--gray-800);
+    border: 1px solid var(--gray-700);
+    border-radius: 0.375rem;
+    color: var(--gray-300);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--theme-transition);
+  }
+
+  .copy-button:hover {
+    background: var(--gray-700);
+    color: var(--gray-200);
+    border-color: var(--gray-600);
+  }
+
+  .copy-button:active {
+    transform: translateY(1px);
+  }
+
+  .copy-button.copied {
+    background: var(--accent-regular);
+    color: var(--accent-text-over);
+    border-color: var(--accent-dark);
+  }
+
+  .copy-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .copy-text {
+    font-size: var(--text-xs);
+  }
+
+  .code-content {
+    margin: 0;
+    padding: 1.5rem;
+    background: var(--gray-999);
+    overflow-x: auto;
+    font-family: "JetBrains Mono", "Fira Code", "Monaco", "Cascadia Code",
+      "Roboto Mono", monospace;
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    color: var(--gray-200);
+  }
+
+  .code-content code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  /* Syntax highlighting for common languages */
+  .language-javascript .token.keyword,
+  .language-typescript .token.keyword,
+  .language-js .token.keyword,
+  .language-ts .token.keyword {
+    color: #c561f6;
+    font-weight: 600;
+  }
+
+  .language-javascript .token.string,
+  .language-typescript .token.string,
+  .language-js .token.string,
+  .language-ts .token.string {
+    color: #10b981;
+  }
+
+  .language-javascript .token.comment,
+  .language-typescript .token.comment,
+  .language-js .token.comment,
+  .language-ts .token.comment {
+    color: var(--gray-500);
+    font-style: italic;
+  }
+
+  .language-javascript .token.function,
+  .language-typescript .token.function,
+  .language-js .token.function,
+  .language-ts .token.function {
+    color: #3b82f6;
+  }
+
+  .language-javascript .token.number,
+  .language-typescript .token.number,
+  .language-js .token.number,
+  .language-ts .token.number {
+    color: #f59e0b;
+  }
+
+  .language-bash .token.command {
+    color: #10b981;
+    font-weight: 600;
+  }
+
+  .language-bash .token.parameter {
+    color: #3b82f6;
+  }
+
+  .language-json .token.property {
+    color: #c561f6;
+  }
+
+  .language-json .token.string {
+    color: #10b981;
+  }
+
+  .language-json .token.number {
+    color: #f59e0b;
+  }
+
+  .language-json .token.boolean {
+    color: #ef4444;
+  }
+
+  .language-css .token.selector {
+    color: #c561f6;
+  }
+
+  .language-css .token.property {
+    color: #3b82f6;
+  }
+
+  .language-css .token.value {
+    color: #10b981;
+  }
+
+  @media (min-width: 50em) {
+    .code-block {
+      border-radius: 1rem;
+    }
+
+    .code-header {
+      padding: 1rem 1.5rem;
+    }
+
+    .code-content {
+      padding: 2rem;
+      font-size: var(--text-base);
+    }
+  }
+
+  @media (width < 768px) {
+    .code-block {
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+      margin: 1rem 0;
+    }
+
+    .code-content {
+      padding: 1rem;
+      font-size: var(--text-sm);
+    }
+  }
+</style>
+
+<script>
+  // Copy to clipboard functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    const copyButtons = document.querySelectorAll(".copy-button");
+
+    copyButtons.forEach((button) => {
+      button.addEventListener("click", async () => {
+        const code = button.getAttribute("data-code");
+        const copyText = button.querySelector(".copy-text");
+
+        try {
+          await navigator.clipboard.writeText(code);
+
+          // Visual feedback
+          button.classList.add("copied");
+          copyText.textContent = "Copied!";
+
+          setTimeout(() => {
+            button.classList.remove("copied");
+            copyText.textContent = "Copy";
+          }, 2000);
+        } catch (err) {
+          console.error("Failed to copy text: ", err);
+          copyText.textContent = "Failed";
+          setTimeout(() => {
+            copyText.textContent = "Copy";
+          }, 2000);
+        }
+      });
+    });
+  });
+</script>
