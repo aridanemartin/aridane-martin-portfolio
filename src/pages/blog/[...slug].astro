@@ -1,19 +1,17 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-
-import BaseLayout from "../../layouts/BaseLayout.astro";
-
-import ContactCTA from "../../components/ContactCTA.astro";
-import Hero from "../../components/Hero.astro";
-import Icon from "../../components/Icon.astro";
-import Pill from "../../components/Pill.astro";
+import { type CollectionEntry, getCollection } from 'astro:content';
+import ContactCTA from '../../components/ContactCTA.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import Pill from '../../components/Pill.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 interface Props {
-  entry: CollectionEntry<"blog">;
+  entry: CollectionEntry<'blog'>;
 }
 
 export async function getStaticPaths() {
-  const blog = await getCollection("blog");
+  const blog = await getCollection('blog');
   return blog.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },

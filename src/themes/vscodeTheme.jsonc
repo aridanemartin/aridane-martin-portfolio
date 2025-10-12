@@ -981,11 +981,7 @@
       }
     },
     {
-      "scope": [
-        "constant.language",
-        "punctuation.definition.constant",
-        "variable.other.constant"
-      ],
+      "scope": ["constant.language", "punctuation.definition.constant", "variable.other.constant"],
       "settings": {
         "foreground": "#82AAFF"
       }
@@ -1599,10 +1595,7 @@
       }
     },
     {
-      "scope": [
-        "string.interpolated.single.dart",
-        "string.interpolated.double.dart"
-      ],
+      "scope": ["string.interpolated.single.dart", "string.interpolated.double.dart"],
       "settings": {
         "foreground": "#FFCB8B"
       }
@@ -1728,19 +1721,13 @@
       }
     },
     {
-      "scope": [
-        "source.go constant.language.go",
-        "source.go constant.other.placeholder.go"
-      ],
+      "scope": ["source.go constant.language.go", "source.go constant.other.placeholder.go"],
       "settings": {
         "foreground": "#FF5874"
       }
     },
     {
-      "scope": [
-        "entity.name.function.preprocessor.cpp",
-        "entity.scope.name.cpp"
-      ],
+      "scope": ["entity.name.function.preprocessor.cpp", "entity.scope.name.cpp"],
       "settings": {
         "foreground": "#7FDBCA"
       }
@@ -1825,10 +1812,7 @@
       }
     },
     {
-      "scope": [
-        "entity.name.type.instance.jsdoc",
-        "entity.name.type.instance.phpdoc"
-      ],
+      "scope": ["entity.name.type.instance.jsdoc", "entity.name.type.instance.phpdoc"],
       "settings": {
         "foreground": "#5F7E97"
       }
@@ -1996,19 +1980,13 @@
       }
     },
     {
-      "scope": [
-        "markup.underline.link.markdown",
-        "markup.underline.link.image.markdown"
-      ],
+      "scope": ["markup.underline.link.markdown", "markup.underline.link.image.markdown"],
       "settings": {
         "foreground": "#FF869A"
       }
     },
     {
-      "scope": [
-        "string.other.link.title.markdown",
-        "string.other.link.description.markdown"
-      ],
+      "scope": ["string.other.link.title.markdown", "string.other.link.description.markdown"],
       "settings": {
         "foreground": "#D6DEEB"
       }
@@ -2079,19 +2057,13 @@
       }
     },
     {
-      "scope": [
-        "variable.parameter.function.python",
-        "meta.function-call.arguments.python"
-      ],
+      "scope": ["variable.parameter.function.python", "meta.function-call.arguments.python"],
       "settings": {
         "foreground": "#82AAFF"
       }
     },
     {
-      "scope": [
-        "meta.function-call.python",
-        "meta.function-call.generic.python"
-      ],
+      "scope": ["meta.function-call.python", "meta.function-call.generic.python"],
       "settings": {
         "foreground": "#B2CCD6"
       }
@@ -2132,19 +2104,13 @@
       }
     },
     {
-      "scope": [
-        "source.css.scss meta.at-rule variable",
-        "source.css.sass meta.at-rule variable"
-      ],
+      "scope": ["source.css.scss meta.at-rule variable", "source.css.sass meta.at-rule variable"],
       "settings": {
         "foreground": "#82AAFF"
       }
     },
     {
-      "scope": [
-        "source.css.scss meta.at-rule variable",
-        "source.css.sass meta.at-rule variable"
-      ],
+      "scope": ["source.css.scss meta.at-rule variable", "source.css.sass meta.at-rule variable"],
       "settings": {
         "foreground": "#BEC5D4"
       }
@@ -2256,11 +2222,7 @@
       }
     },
     {
-      "scope": [
-        "meta.jsx.children",
-        "meta.jsx.children.js",
-        "meta.jsx.children.tsx"
-      ],
+      "scope": ["meta.jsx.children", "meta.jsx.children.js", "meta.jsx.children.tsx"],
       "settings": {
         "foreground": "#D6DEEB"
       }
