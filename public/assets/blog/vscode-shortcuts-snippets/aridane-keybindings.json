@@ -1,0 +1,456 @@
+[
+	{
+		"key": "shift shift",
+		"command": "workbench.action.toggleSidebarVisibility",
+		"description": "Mac/Windows/Linux: Toggle sidebar visibility"
+	},
+	{
+		"key": "ctrl+e",
+		"command": "workbench.view.explorer",
+		"when": "viewContainer.workbench.view.explorer.enabled",
+		"description": "Windows/Linux: Focus file explorer"
+	},
+	{
+		"key": "cmd+e",
+		"command": "workbench.view.explorer",
+		"when": "viewContainer.workbench.view.explorer.enabled",
+		"description": "Mac: Focus file explorer"
+	},
+	{
+		"key": "ctrl+shift+g",
+		"command": "workbench.view.scm",
+		"when": "workbench.scm.active",
+		"description": "Windows/Linux: Open source control view"
+	},
+	{
+		"key": "cmd+shift+g",
+		"command": "workbench.view.scm",
+		"when": "workbench.scm.active",
+		"description": "Mac: Open source control view"
+	},
+	{
+		"key": "cmd+shift+b",
+		"command": "workbench.view.extension.bookmarks",
+		"description": "Mac: Open bookmarks extension tab"
+	},
+	{
+		"key": "ctrl+shift+b",
+		"command": "workbench.view.extension.bookmarks",
+		"description": "Windows/Linux: Open bookmarks extension tab"
+	},
+	{
+		"key": "ctrl+b",
+		"command": "bookmarks.jumpToNext",
+		"when": "editorTextFocus",
+		"description": "Windows/Linux: Jump to next bookmark"
+	},
+	{
+		"key": "cmd+b",
+		"command": "bookmarks.jumpToNext",
+		"when": "editorTextFocus",
+		"description": "Mac: Jump to next bookmark"
+	},
+	{
+		"key": "cmd+l",
+		"command": "expandLineSelection",
+		"when": "textInputFocus",
+		"description": "Mac: Select entire line"
+	},
+	{
+		"key": "ctrl+l",
+		"command": "expandLineSelection",
+		"when": "textInputFocus",
+		"description": "Windows/Linux: Select entire line"
+	},
+	{
+		"key": "cmd+shift+k",
+		"command": "editor.action.deleteLines",
+		"when": "textInputFocus && !editorReadonly",
+		"description": "Mac: Remove/delete current line"
+	},
+	{
+		"key": "ctrl+shift+k",
+		"command": "editor.action.deleteLines",
+		"when": "textInputFocus && !editorReadonly",
+		"description": "Windows/Linux: Remove/delete current line"
+	},
+	{
+		"key": "shift+cmd+d",
+		"command": "editor.action.copyLinesDownAction",
+		"description": "Mac: Duplicate current line or selection to next line"
+	},
+	{
+		"key": "shift+ctrl+d",
+		"command": "editor.action.copyLinesDownAction",
+		"description": "Windows/Linux: Duplicate current line or selection to next line"
+	},
+	{
+		"key": "ctrl+w",
+		"command": "runCommands",
+		"args": {
+			"commands": [
+				"workbench.action.unpinEditor",
+				"workbench.action.closeActiveEditor"
+			]
+		},
+		"when": "editorFocus && !terminalFocus",
+		"description": "Windows/Linux: Close active editor (including pinned tabs)"
+	},
+	{
+		"key": "cmd+w",
+		"command": "runCommands",
+		"args": {
+			"commands": [
+				"workbench.action.unpinEditor",
+				"workbench.action.closeActiveEditor"
+			]
+		},
+		"when": "editorFocus && !terminalFocus",
+		"description": "Mac: Close active editor (including pinned tabs)"
+	},
+	{
+		"title": "Close All Editors (Mac)",
+		"key": "shift+cmd+w",
+		"command": "workbench.action.closeAllEditors"
+	},
+	{
+		"title": "Close All Editors (Windows/Linux)",
+		"key": "shift+ctrl+w",
+		"command": "workbench.action.closeAllEditors"
+	},
+	{
+		"title": "Close Other Editors (Mac)",
+		"key": "shift+cmd+o",
+		"command": "workbench.action.closeOtherEditors"
+	},
+	{
+		"title": "Close Other Editors (Windows/Linux)",
+		"key": "shift+ctrl+o",
+		"command": "workbench.action.closeOtherEditors"
+	},
+	{
+		"key": "cmd+shift+r",
+		"command": "workbench.action.terminal.runSelectedText",
+		"when": "editorTextFocus",
+		"description": "Mac: Run selected text in terminal"
+	},
+	{
+		"key": "ctrl+shift+r",
+		"command": "workbench.action.terminal.runSelectedText",
+		"when": "editorTextFocus",
+		"description": "Windows/Linux: Run selected text in terminal"
+	},
+	{
+		"key": "ctrl+n",
+		"command": "workbench.action.files.newUntitledFile",
+		"when": "editorFocus",
+		"description": "Windows/Linux: Create new untitled file in editor"
+	},
+	{
+		"key": "cmd+n",
+		"command": "workbench.action.files.newUntitledFile",
+		"when": "editorFocus",
+		"description": "Mac: Create new untitled file in editor"
+	},
+	{
+		"title": "Remove UNUSED imports",
+		"key": "ctrl+shift+u",
+		"command": "javascript.removeUnusedImports",
+		"description": "Windows/Linux: Remove unused imports"
+	},
+	{
+		"title": "Remove UNUSED imports",
+		"key": "cmd+shift+u",
+		"command": "javascript.removeUnusedImports",
+		"description": "Mac: Remove unused imports"
+	},
+	{
+		"key": "cmd+shift+f12",
+		"command": "references-view.findReferences",
+		"when": "editorHasReferenceProvider",
+		"description": "Mac: Find all references"
+	},
+	{
+		"key": "ctrl+shift+f12",
+		"command": "references-view.findReferences",
+		"when": "editorHasReferenceProvider",
+		"description": "Windows/Linux: Find all references"
+	},
+	{
+		"key": "ctrl+pageup",
+		"command": "workbench.action.terminal.focusPrevious",
+		"when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus",
+		"description": "Windows/Linux: Focus previous terminal"
+	},
+	{
+		"key": "ctrl+pagedown",
+		"command": "workbench.action.terminal.focusNext",
+		"when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus",
+		"description": "Windows/Linux: Focus next terminal"
+	},
+	{
+		"key": "cmd+pageup",
+		"command": "workbench.action.terminal.focusPrevious",
+		"when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus",
+		"description": "Mac: Focus previous terminal"
+	},
+	{
+		"key": "cmd+pagedown",
+		"command": "workbench.action.terminal.focusNext",
+		"when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus",
+		"description": "Mac: Focus next terminal"
+	},
+	{
+		"key": "cmd+up",
+		"command": "workbench.action.terminal.focusPrevious",
+		"when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus",
+		"description": "Windows/Linux: Focus previous terminal (Laptop)"
+	},
+	{
+		"key": "cmd+down",
+		"command": "workbench.action.terminal.focusNext",
+		"when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus",
+		"description": "Windows/Linux: Focus next terminal (Laptop)"
+	},
+	{
+		"key": "cmd+shift+[",
+		"command": "workbench.action.terminal.focusPrevious",
+		"when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus",
+		"description": "Mac: Focus previous terminal"
+	},
+	{
+		"key": "cmd+shift+]",
+		"command": "workbench.action.terminal.focusNext",
+		"when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus",
+		"description": "Mac: Focus next terminal"
+	},
+	{
+		"key": "ctrl+shift+[",
+		"command": "workbench.action.terminal.focusPrevious",
+		"when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus",
+		"description": "Windows/Linux: Focus previous terminal"
+	},
+	{
+		"key": "ctrl+shift+]",
+		"command": "workbench.action.terminal.focusNext",
+		"when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus",
+		"description": "Windows/Linux: Focus next terminal"
+	},
+	{
+		"key": "ctrl+w",
+		"command": "workbench.action.terminal.kill",
+		"when": "terminalFocus",
+		"description": "Windows/Linux: Close active terminal"
+	},
+	{
+		"key": "cmd+w",
+		"command": "workbench.action.terminal.kill",
+		"when": "terminalFocus",
+		"description": "Mac: Close active terminal"
+	},
+	{
+		"key": "ctrl+shift+w",
+		"description": "Windows/Linux: Close all the terminals",
+		"command": "workbench.action.terminal.killAll",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "cmd+shift+w",
+		"description": "Mac: Close all the terminals",
+		"command": "workbench.action.terminal.killAll",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+n",
+		"command": "workbench.action.terminal.new",
+		"when": "terminalFocus",
+		"description": "Windows/Linux: Create new terminal"
+	},
+	{
+		"key": "cmd+n",
+		"command": "workbench.action.terminal.new",
+		"when": "terminalFocus",
+		"description": "Mac: Create new terminal"
+	},
+	{
+		"key": "ctrl+n",
+		"command": "explorer.newFile",
+		"when": "explorerViewletFocus",
+		"description": "Windows/Linux: Create new file in explorer"
+	},
+	{
+		"key": "cmd+n",
+		"command": "explorer.newFile",
+		"when": "explorerViewletFocus",
+		"description": "Mac: Create new file in explorer"
+	},
+	{
+		"key": "enter",
+		"command": "list.select",
+		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus",
+		"description": "Windows/Linux/Mac: Open/select file in explorer (instead of rename)"
+	},
+	{
+		"key": "f2",
+		"command": "renameFile",
+		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus",
+		"description": "Windows/Linux/Mac: Rename file in explorer"
+	},
+	{
+		"key": "ctrl+d",
+		"command": "workbench.files.action.collapseExplorerFolders",
+		"when": "filesExplorerFocus",
+		"description": "Windows/Linux: Collapse all folders in explorer"
+	},
+	{
+		"key": "cmd+d",
+		"command": "workbench.files.action.collapseExplorerFolders",
+		"when": "filesExplorerFocus",
+		"description": "Mac: Collapse all folders in explorer"
+	},
+	{
+		"key": "ctrl+i",
+		"command": "inlineChat.start",
+		"when": "inlineChatHasProvider && !editorReadonly",
+		"description": "Windows/Linux: Start inline chat"
+	},
+	{
+		"key": "ctrl+n",
+		"description": "Windows/Linux: Open a new chat (When the chat view is focused)",
+		"command": "chat.openNewChat",
+		"when": "chatViewFocus"
+	},
+	{
+		"key": "cmd+n",
+		"description": "Mac: Open a new chat (When the chat view is focused)",
+		"command": "chat.openNewChat",
+		"when": "chatViewFocus"
+	},
+	{
+		"key": "ctrl+i",
+		"command": "workbench.action.terminal.chat.start",
+		"when": "terminalFocus",
+		"description": "Windows/Linux: Start Copilot chat in terminal"
+	},
+	{
+		"key": "cmd+i",
+		"command": "workbench.action.terminal.chat.start",
+		"when": "terminalFocus",
+		"description": "Mac: Start Copilot chat in terminal"
+	},
+	{
+		"key": "ctrl+shift+i",
+		"command": "workbench.action.chat.open",
+		"when": "terminalFocus",
+		"description": "Windows/Linux: Open Copilot chat panel from terminal"
+	},
+	{
+		"key": "cmd+shift+i",
+		"command": "workbench.action.chat.open",
+		"when": "terminalFocus",
+		"description": "Mac: Open Copilot chat panel from terminal"
+	},
+	{
+		"key": "ctrl+shift+i",
+		"command": "github.copilot.chat.attachSelection",
+		"description": "Windows/Linux: Attach selection to Copilot chat"
+	},
+	{
+		"key": "ctrl+r",
+		"command": "-workbench.action.quickOpenNavigateNextInRecentFilesPicker",
+		"when": "inQuickOpen && inRecentFilesPicker",
+		"description": "Windows/Linux: Disable navigate next in recent files picker"
+	},
+	{
+		"key": "ctrl+r",
+		"command": "-workbench.action.terminal.runRecentCommand",
+		"when": "accessibilityModeEnabled && terminalFocus && terminalHasBeenCreated || accessibilityModeEnabled && terminalFocus && terminalProcessSupported",
+		"description": "Windows/Linux: Disable run recent command in terminal"
+	},
+	{
+		"key": "ctrl+r",
+		"command": "-workbench.action.openRecent",
+		"description": "Windows/Linux: Disable open recent"
+	},
+	{
+		"key": "ctrl+r ctrl+r",
+		"command": "-editor.action.rename",
+		"when": "editorHasRenameProvider && editorTextFocus && !editorReadonly",
+		"description": "Windows/Linux: Disable rename symbol"
+	},
+	{
+		"key": "ctrl+r ctrl+w",
+		"command": "-editor.action.toggleRenderWhitespace",
+		"description": "Windows/Linux: Disable toggle render whitespace"
+	},
+	{
+		"key": "ctrl+cmd+i",
+		"command": "-workbench.panel.chatSidebar.copilot",
+		"description": "Mac: Disable Copilot chat sidebar"
+	},
+	{
+		"key": "cmd+i",
+		"command": "-inlineChat.start",
+		"when": "inlineChatHasProvider && !editorReadonly",
+		"description": "Mac: Disable default inline chat start"
+	},
+	{
+		"key": "cmd+i",
+		"command": "-editor.action.triggerSuggest",
+		"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible",
+		"description": "Mac: Disable default trigger suggestions"
+	},
+	{
+		"key": "cmd+i",
+		"command": "-focusSuggestion",
+		"when": "suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion",
+		"description": "Mac: Disable focus suggestion"
+	},
+	{
+		"key": "cmd+i",
+		"command": "-markdown.extension.editing.toggleItalic",
+		"when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/",
+		"description": "Mac: Disable markdown toggle italic"
+	},
+	{
+		"key": "cmd+i",
+		"command": "-toggleSuggestionDetails",
+		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus",
+		"description": "Mac: Disable toggle suggestion details"
+	},
+	{
+		"key": "alt+\\",
+		"command": "-editor.action.inlineSuggest.trigger",
+		"when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible",
+		"description": "Mac/Windows/Linux: Disable inline suggest trigger"
+	},
+	{
+		"key": "shift+alt+l",
+		"command": "-bookmarks.expandSelectionToNext",
+		"when": "editorTextFocus",
+		"description": "Mac/Windows/Linux: Disable expand selection to next bookmark"
+	},
+	{
+		"key": "ctrl+shift+b",
+		"command": "-workbench.action.tasks.build",
+		"description": "Windows/Linux: Disable build task"
+	},
+	{
+		"key": "alt+cmd+l",
+		"command": "-bookmarks.jumpToNext",
+		"when": "editorTextFocus",
+		"description": "Mac: Disable default jump to next bookmark"
+	},
+	{
+		"key": "ctrl+shift+l",
+		"command": "-editor.action.deleteLines",
+		"when": "editorTextFocus && !editorReadonly",
+		"description": "Windows/Linux: Disable delete lines"
+	},
+	{
+		"key": "ctrl+shift+i",
+		"command": "-workbench.action.chat.openEditSession",
+		"when": "chatEditingParticipantRegistered && chatIsEnabled && view != 'workbench.panel.chat.view.edits'",
+		"description": "Windows/Linux: Disable open chat edit session"
+	}
+]
