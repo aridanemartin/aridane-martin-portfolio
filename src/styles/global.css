@@ -16,7 +16,7 @@
   --gray-999_40: hsla(var(--gray-999-basis), 0.4);
   --gray-999: #ffffff;
 
-  --accent-light: #c561f6;
+  --accent-light: #a948d8;
   --accent-regular: #7611a6;
   --accent-dark: #1c0056;
   --accent-overlay: hsla(280, 89%, 67%, 0.33);
@@ -97,7 +97,7 @@
   --gray-999-basis: 225, 31%, 5%;
   --gray-999: #090b11;
 
-  --accent-light: #1c0056;
+  --accent-light: #B392F0;
   --accent-regular: #7611a6;
   --accent-dark: #c561f6;
   --accent-overlay: hsla(280, 89%, 67%, 0.33);
@@ -280,7 +280,8 @@ h5 {
   box-shadow: var(--shadow-sm);
   margin: 1.5rem 0;
   padding: 1.5rem;
-  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
   font-family: "JetBrains Mono", "Fira Code", "Monaco", "Cascadia Code", "Roboto Mono", monospace;
   font-size: var(--text-sm);
   line-height: 1.6;
@@ -299,7 +300,7 @@ h5 {
 /* Inline code styling */
 .content code:not(pre code) {
   background: var(--gray-900);
-  color: var(--accent-regular);
+  color: var(--accent-dark);
   padding: 0.125rem 0.375rem;
   border-radius: 0.25rem;
   font-family: "JetBrains Mono", "Fira Code", "Monaco", "Cascadia Code", "Roboto Mono", monospace;
@@ -342,6 +343,11 @@ h5 {
   color: var(--gray-300);
 }
 
+/* Article list styling */
+.content ol {
+  padding: 0 1.5rem;
+}
+
 /* Responsive code blocks */
 @media (min-width: 50em) {
   .content pre {
@@ -353,7 +359,6 @@ h5 {
 
 @media (width < 768px) {
   .content pre {
-    border-radius: 0;
     border-left: none;
     border-right: none;
     margin: 1rem 0;

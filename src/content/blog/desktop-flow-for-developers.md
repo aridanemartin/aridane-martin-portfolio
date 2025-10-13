@@ -14,15 +14,9 @@ _Conference: OpenCommit Fest_
 
 ---
 
-## Introduction
-
-Let's start by mastering your **desktop flow** — efficient window management that transforms how you interact with your development environment.
+Let's start by mastering your **desktop flow** — efficient window management that transforms how you interact with your development environment. In this article, you'll learn how to snap windows with Rectangle, switch context fluidly with AltTab, launch and automate with Raycast, and use built‑in macOS gestures to tie it all together — plus setup, shortcut choices, and practical tips to build lasting muscle memory.
 
 > 💡 **Tip:** The goal is to stop fighting your tools and start letting them work for you.
-
----
-
-## Essential Desktop Tools
 
 Here are the tools that will revolutionize your desktop workflow:
 
@@ -32,7 +26,7 @@ Here are the tools that will revolutionize your desktop workflow:
 - **Gestures on Mac** → use multi-touch for window control  
 
 
-#### Rectangle: Window Management Mastery
+## Rectangle: Window Management Mastery
 
 [Rectangle app](https://www.rectangleapp.com) is a powerful tool for window management. Here are some of the shortcuts I actually use in my daily workflow:
 
@@ -46,8 +40,6 @@ Here are the tools that will revolutionize your desktop workflow:
 - **Consistent shortcuts** - Same keys work across all apps
 - **Multi-monitor support** - Seamlessly move between screens
 - **Customizable** - Create your own window arrangements
-
----
 
 ## AltTab: Advanced Window Switching
 
@@ -63,9 +55,7 @@ Here are the tools that will revolutionize your desktop workflow:
 - Beautiful preview thumbnails
 - Keyboard navigation support
 
----
-
-#### Raycast: Universal Search & More
+## Raycast: Universal Search & More
 
 [Raycast](https://raycast.com) is a blazing-fast launcher that replaces Spotlight with smart universal search, powerful plugins, and deep customization options for macOS.
 
@@ -78,32 +68,52 @@ Here are the tools that will revolutionize your desktop workflow:
 - **Deep customization** - Tailor it to your workflow
 - **Developer-friendly** - Built for power users
 
----
+## macOS Gestures: Multi‑Touch and Multiple Desktops
+
+Use built‑in [multi‑touch gestures](https://support.apple.com/en-us/102482) and multiple desktops to switch context instantly without overlapping windows.
+
+![macOS Mission Control with multiple desktops](/assets/blog/desktop-flow-for-developers/macDesktops.webp)
+
+### Core 4‑finger gestures
+
+![Four-finger swipe up to open Mission Control](/assets/blog/desktop-flow-for-developers/fourFingersUp.webp)
+- **Swipe up (4 fingers)**: Open Mission Control to view all windows and desktops
+![Four-finger horizontal swipe to change desktop](/assets/blog/desktop-flow-for-developers/fourFingersLateral.webp)
+- **Swipe left/right (4 fingers)**: Move between desktops/spaces instantly
+![Four-finger swipe down for App Exposé](/assets/blog/desktop-flow-for-developers/fourFingersDown.webp)
+- **Swipe down (4 fingers)** on an app: App Exposé (filter to that app’s windows)
+
+### Creating and arranging desktops
+
+1. **Open Mission Control** — four‑finger swipe up
+2. **Create a new Desktop** — click the `+` in the top‑right
+3. **Move windows to a Desktop** — drag a window thumbnail to a space at the top
+4. **Rename or organize** — hover a Desktop in Mission Control and rename it for clarity
+5. **Full‑screen apps** — placing an app full‑screen automatically creates its own space
+
+### Practical multi‑desktop setups
+
+- **Code + Docs**: Desktop 1 for IDE and terminal; Desktop 2 for documentation and designs. Swipe to reference specs without overlapping windows.
+- **Build + Test**: Desktop 1 with server/logs; Desktop 2 with browser and DevTools. Watch logs while you test UI changes.
+- **Focus + Comms**: Desktop 1 for deep work; Desktop 2 for Slack/Email/Calendar. Keep notifications visible but off your focus desktop.
+- **Meeting Mode**: Desktop with video call and notes app side‑by‑side. Swipe back to your dev desktop to demo or check code.
+
+Pro tip: Pair desktops with Rectangle layouts. Keep consistent window positions per desktop so your brain learns where things “live,” reducing context‑switching cost.
+
+## Recap
+
+> 🚀 **The goal:** Stop dragging windows and start snapping them into place instantly.
+
+Desktop flow is about creating a seamless, efficient environment where your tools work for you, not against you. Start with Rectangle for window management, add AltTab for advanced switching, and complete the setup with Raycast for universal search.
+
 
 #### Quick Setup Guide
-
 1. **Install Rectangle** - Download from [rectangleapp.com](https://www.rectangleapp.com)
 2. **Install AltTab** - Get it from [alt-tab-macos.netlify.app](https://alt-tab-macos.netlify.app)
 3. **Install Raycast** - Download from [raycast.com](https://raycast.com)
 4. **Configure shortcuts** - Set up your preferred key combinations
 5. **Practice daily** - Use these tools consistently to build muscle memory
-
----
-
-#### Pro Tips
-
-- **Start small** - Master one tool at a time
-- **Be consistent** - Use the same shortcuts every day
-- **Customize gradually** - Don't change everything at once
-- **Practice regularly** - Muscle memory takes time to develop
-
----
-
-#### Wrap Up
-
-Desktop flow is about creating a seamless, efficient environment where your tools work for you, not against you. Start with Rectangle for window management, add AltTab for advanced switching, and complete the setup with Raycast for universal search.
-
-> 🚀 **The goal:** Stop dragging windows and start snapping them into place instantly.
+   
 
 ---
 
