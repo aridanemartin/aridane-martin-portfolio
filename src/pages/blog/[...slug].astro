@@ -79,6 +79,7 @@ const { Content } = await entry.render();
 
     .tags {
       display: flex;
+      flex-wrap: wrap;
       gap: 0.5rem;
     }
 
@@ -162,6 +163,10 @@ const { Content } = await entry.render();
       padding-inline-start: 1.5rem;
       border-inline-start: 0.25rem solid var(--accent-dark);
       color: var(--gray-0);
+    }
+
+    .content :global(ul) {
+      padding: 0 1.5rem;
     }
 
     /* Enhanced code block styling */

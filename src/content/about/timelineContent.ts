@@ -1,6 +1,15 @@
 export const timelineContent = [
   {
-    title: 'Openbank',
+    title: 'SpainSkills Mentor',
+    year: '2025',
+    description:
+      "Continuing my work with 'El Rincón', I had the honor of being chosen once more as a mentor, this time guiding Rodrigo, who claimed victory in the Canary Islands SpainSkills competition in 2025. Together, we prepared for the national stage of this prestigious event celebrating young talent across various professional disciplines.",
+    image: '/assets/timeline/withJose.webp',
+    imageDescription:
+      'With my friend José Ignacio Zaballos, Computer Science and Communications Teacher in the Canary Islands',
+  },
+  {
+    title: 'Openbank | Grupo Santander',
     year: '2024',
     description:
       'As part of my work at Openbank, I contributed as a Senior Frontend Developer within the UK Cards domain, where we applied Hexagonal Architecture and Domain-Driven Design (DDD) principles to build robust and scalable solutions. Later, I took on the role of Tech Lead in the integration of the Pandora cash register software for the Polish market, leading the frontend efforts in a highly collaborative and cross-functional environment.',
@@ -8,10 +17,10 @@ export const timelineContent = [
     imageDescription: 'With my dear friends Juanma and Carlos at the SCNPA conference.',
   },
   {
-    title: 'SpainSkills',
-    year: '2024',
+    title: 'SpainSkills Mentor',
+    year: '2023',
     description:
-      "In collaboration with 'El Rincón', I participated as a tutor preparing the award winning student, Kilian Sosa to compete in the SpainSkills competition, a national competition that showcases the skills of young professionals in various fields. ",
+      "I was selected to mentor Kilian Sosa, the winner of the SpainSkills competition in the Canary Islands. In collaboration with 'El Rincón', I prepared him to compete in this national competition that showcases the skills of young professionals in various fields.",
     image: '/assets/timeline/kilian.webp',
     imageDescription: 'With my student Kilian attending a developers conference',
   },
