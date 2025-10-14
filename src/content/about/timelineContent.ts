@@ -47,6 +47,6 @@ export const timelineContent = [
     description:
       "I joined EscolaPort Barcelona, a sailing school based in Barcelona, as a full-stack developer. I was responsible for developing and maintaining the front-end and backend of the company's booking app, ensuring that it is user-friendly, responsive, and visually appealing.",
     image: '/assets/timeline/esteban.webp',
-    imageDescription: 'With my dear friend Esteban in some of the Gofigeeks mensual events.',
+    imageDescription: 'With my dear friend Esteban in some of the Gofigeeks monthly events.',
   },
 ];
