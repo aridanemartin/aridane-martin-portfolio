@@ -99,7 +99,7 @@ Use built‑in [multi‑touch gestures](https://support.apple.com/en-us/102482) 
 - **Focus + Comms**: Desktop 1 for deep work; Desktop 2 for Slack/Email/Calendar. Keep notifications visible but off your focus desktop.
 - **Meeting Mode**: Desktop with video call and notes app side‑by‑side. Swipe back to your dev desktop to demo or check code.
 
-Pro tip: Pair desktops with Rectangle layouts. Keep consistent window positions per desktop so your brain learns where things “live,” reducing context‑switching cost.
+Quick tip: Pair desktops with Rectangle layouts. Keep consistent window positions per desktop so your brain learns where things “live,” reducing context‑switching cost.
 
 ## Recap
 

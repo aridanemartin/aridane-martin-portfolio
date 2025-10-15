@@ -54,7 +54,7 @@ Cmd + Shift + B (Bookmarks)
 Cmd + Shift + I (Intelligence)
 ```
 
-> 💡 **Pro Tip:** These shortcuts work as toggles - press once to open, press again to close the panel.
+> 💡 **Quick Tip:** These shortcuts work as toggles - press once to open, press again to close the panel.
 
 ---
 

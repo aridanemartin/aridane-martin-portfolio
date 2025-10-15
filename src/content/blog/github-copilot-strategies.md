@@ -84,7 +84,7 @@ You can experiment with different roles to match your current task:
 | Performance   | “Act as a performance optimization specialist.”      |
 | Documentation | “Act as a technical writer summarizing this module.” |
 
-> 💡 **Pro Tip:** Combine roles with your stack context for sharper results.
+> 💡 **Quick Tip:** Combine roles with your stack context for sharper results.
 
 By giving Copilot a clear identity, you turn it from a general assistant into a **focused teammate** who speaks your technical language.
 

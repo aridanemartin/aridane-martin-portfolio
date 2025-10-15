@@ -226,6 +226,31 @@ const wasUpdatedInLastSixMonths =
       padding: 0 1.5rem;
     }
 
+    /* Table styling */
+    .content :global(table) {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      display: block;
+      overflow-x: auto;
+    }
+
+    .content :global(td),
+    .content :global(th) {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--gray-800);
+    }
+
+    .content :global(th) {
+      background: var(--gray-900);
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .content :global(td) {
+      background: var(--gray-999);
+    }
+
     /* Enhanced code block styling */
     .content :global(pre) {
       position: relative;

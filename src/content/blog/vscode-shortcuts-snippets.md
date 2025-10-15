@@ -15,9 +15,7 @@ _Conference: OpenCommit Fest_
 
 ---
 
-## Introduction
-
-The secret to mastering shortcuts is not speed — it's **consistency**. This guide will help you build muscle memory and transform your VSCode workflow from chaotic clicking to surgical precision.
+Mastering VSCode shortcuts is about building habits, not memorizing keys. The secret to productivity is muscle memory — the ability to perform actions without conscious thought. This guide will help you build that muscle memory and transform your VSCode workflow from chaotic clicking to surgical precision.
 
 > 🧠 **Key Principle:** Build muscle memory by associating shortcuts with actions, not key patterns.
 
@@ -25,66 +23,50 @@ The secret to mastering shortcuts is not speed — it's **consistency**. This gu
 
 ## Think in Actions, Not Keys
 
-The most important mindset shift: think about what you want to **do**, not what keys to press.
+The most important mindset shift: think about what you want to **do**, not what keys to press and create intuitive mappings based on actions. 
 
-### Essential Action-Based Shortcuts
+```json
+cmd + f # "F"ind in file
+cmd + s # "S"ave file
+cmd + b # Toggle Side"B"ar
+cmd + l # "L"ine (Go to Line)
+```
 
-| Action | Shortcut |
-|--------|-----------|
-| Next / Previous editor tab | `Cmd + PageUp / PageDown` |
-| Close tab / Kill terminal | `Cmd + W` |
-| Reopen closed tab | `Cmd + Shift + T` |
-| New file / tab / terminal | `Cmd + N` |
-| Find in project | `Cmd + Shift + F` |
-| Go to explorer | `Cmd + Shift + E` |
-| Git section | `Cmd + Shift + G` |
-| Select line | `Cmd + L` |
+## Same Shortcut, Same Action
 
----
+No matter the context, we don’t have infinite memory 😝 — so why not make shortcuts easier to remember?
 
-## Building Better Shortcuts
+> 💡 Tip: Align your shortcuts in VS Code, your terminal, and your browser.
+> You’ll reduce cognitive load and keep your workflow consistent everywhere.
 
-### Customize Your Setup
+Keep the same shortcut for the same action, across all your tools.
+When your muscle memory aligns between apps, everything becomes faster and more natural.
 
-- Use **VSCode → Keyboard Shortcuts** to personalize your setup
-- Combine native commands to create multi-step actions — no plugins required
-- Create shortcuts that match your mental model
+Here's an example setup:
 
-### Shortcut Categories
+**Cross-Application Shortcuts:**
+- `Ctrl + Tab` - Switch to next tab (Editor / Browser / Terminal)
+- `Cmd + W` - Close tab (Browser / Terminal / Finder)
+- `Cmd + Shift + T` - Reopen last closed tab (Browser / Editor)
+- `Cmd + N` - New file (Editor / Explorer / Terminal)
+- `Cmd + T` - New tab (Editor / Browser)
 
-**Navigation Shortcuts:**
-- `Cmd + P` - Quick Open
-- `Cmd + Shift + P` - Command Palette
-- `Cmd + G` - Go to Line
-- `Cmd + Shift + O` - Go to Symbol
+## Think in Super-Shortcuts
 
-**Editing Shortcuts:**
-- `Cmd + D` - Select Next Occurrence
-- `Cmd + Shift + L` - Select All Occurrences
-- `Option + ↑/↓` - Move Line Up/Down
-- `Shift + Option + ↑/↓` - Copy Line Up/Down
+Once you’ve aligned your basic shortcuts, take it one step further —  
+**create “super-shortcuts.”**  
+Use the same key pattern with an added modifier (like `Shift`) to perform a **related, more powerful action**.
 
-**File Management:**
-- `Cmd + N` - New File
-- `Cmd + S` - Save
-- `Cmd + Shift + S` - Save As
-- `Cmd + W` - Close Tab
+| Shortcut | Action | Super-Shortcut | Super-Action |
+|-----------|---------|----------------|---------------|
+| `cmd + w` | Close tab | `cmd + shift + w` | Close all tabs |
+| `cmd + b` | Go to next bookmark | `cmd + shift + b` | Open bookmarks panel |
+| `cmd + t` | New tab | `cmd + shift + t` | Reopen last closed tab |
 
----
+> 💡 **Tip:** Think of these as *shortcut hierarchies*.  
+> The base key combo does something small; add `Shift`, and it scales up the action.  
+> Your muscle memory will thank you later.
 
-## Muscle Memory Development
-
-### The 3-Step Process
-
-1. **Learn** - Understand what the shortcut does
-2. **Practice** - Use it consistently for a week
-3. **Automate** - It becomes second nature
-
-### Practice Techniques
-
-- **Daily drills** - Spend 5 minutes practicing new shortcuts
-- **Replace mouse actions** - Force yourself to use keyboard alternatives
-- **One shortcut at a time** - Don't overwhelm yourself
 
 ---
 
@@ -93,99 +75,16 @@ The most important mindset shift: think about what you want to **do**, not what 
 Try switching your keyboard and mouse position for a day.  
 It's a fun brain hack that forces you to rely more on keyboard commands.
 
-### Comfort Zone Challenges
+![Developer with crossed hands focusing on keyboard shortcuts](/assets/blog/vscode-shortcuts-snippets/crossedHands.webp)
 
-- **Switch hands** - Use your non-dominant hand for shortcuts
-- **Change keyboard layout** - Try Dvorak or Colemak
-- **Use different shortcuts** - Temporarily change your key bindings
-
----
-
-## Advanced Shortcut Techniques
-
-### Multi-Step Actions
-
-Create compound shortcuts for complex workflows:
-
-```json
-// Example: Save and run tests
-{
-  "key": "cmd+shift+t",
-  "command": "workbench.action.terminal.sendSequence",
-  "args": {
-    "text": "npm test\n"
-  },
-  "when": "editorTextFocus"
-}
-```
-
-### Context-Aware Shortcuts
-
-Use different shortcuts based on file type or context:
-
-- **JavaScript files** - Focus on JS-specific shortcuts
-- **Markdown files** - Use writing-focused shortcuts
-- **Terminal** - Use shell-specific shortcuts
-
----
-
-## Snippet Mastery
-
-### Creating Effective Snippets
-
-```json
-{
-  "React Component": {
-    "prefix": "rfc",
-    "body": [
-      "import React from 'react';",
-      "",
-      "const ${1:ComponentName} = () => {",
-      "  return (",
-      "    <div>",
-      "      ${2:content}",
-      "    </div>",
-      "  );",
-      "};",
-      "",
-      "export default ${1:ComponentName};"
-    ],
-    "description": "React Functional Component"
-  }
-}
-```
-
-### Snippet Best Practices
-
-- **Use descriptive prefixes** - Make them memorable
-- **Include placeholders** - Use `$1`, `$2`, etc. for tab stops
-- **Add descriptions** - Help others understand the snippet
-- **Group related snippets** - Organize by technology or purpose
-
----
-
-## Troubleshooting Common Issues
-
-### When Shortcuts Don't Work
-
-1. **Check for conflicts** - Look for duplicate key bindings
-2. **Verify context** - Ensure the shortcut works in the right file type
-3. **Test in isolation** - Disable extensions to isolate issues
-4. **Check system shortcuts** - macOS system shortcuts might conflict
-
-### Building Consistency
-
-- **Use the same shortcuts everywhere** - Don't change them frequently
-- **Document your shortcuts** - Keep a reference handy
-- **Share with team** - Standardize shortcuts across your team
 
 ---
 
 ## Download My Keybindings
 
-Want to try my exact VSCode setup? Download my keybindings file and import it into your VSCode:
+Want to try my exact VSCode setup? 
 
-### How to Install
+Download my keybindings file and import it into your VSCode:
 
 1. **Download the keybindings file** below
 2. **Open VSCode** → `Cmd + Shift + P` → "Preferences: Open Keyboard Shortcuts (JSON)"
@@ -196,7 +95,7 @@ Want to try my exact VSCode setup? Download my keybindings file and import it in
 
 [📥 Download Aridane's VSCode Keybindings](/assets/blog/vscode-shortcuts-snippets/aridane-keybindings.json)
 
-> 💡 **Pro tip:** Start with a few shortcuts and gradually add more. Don't try to learn everything at once!
+> 💡 **Quick tip:** Start with a few shortcuts and gradually add more. Don't try to learn everything at once!
 
 ---
 
