@@ -20,8 +20,8 @@ const projects = (await getCollection("work"))
 ---
 
 <BaseLayout>
-  <div class="stack gap-20 lg:gap-20">
-    <div class="wrapper stack gap-20 lg:gap-20">
+  <div class="stack gap-12 lg:gap-20">
+    <div class="wrapper stack gap-12 lg:gap-20">
       <header class="hero">
         <Hero
           title="Hello, my name is Aridane Martín"
@@ -124,6 +124,10 @@ const projects = (await getCollection("work"))
     flex-direction: column-reverse;
     align-items: center;
     gap: 2rem;
+  }
+
+  .hero :global(.title) {
+    text-wrap: balance;
   }
 
   .hero-cta {
