@@ -1,7 +1,7 @@
 ---
 title: "Desktop Flow for Developers: Stop Dragging, Start Snapping"
 description: "Master efficient window management with Rectangle, Raycast, and AltTab. Transform your desktop workflow from dragging windows to instant alignment and navigation."
-publishDate: 2024-10-15
+publishDate: 2025-10-15
 timeToRead: 4
 tags: ["productivity", "window-management", "macos"]
 author: "Aridane Martín"

@@ -23,6 +23,7 @@ const { Content } = await entry.render();
 
 const sixMonthsAgo = new Date();
 sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+
 const wasUpdatedInLastSixMonths =
   entry.data.lastUpdateDate && entry.data.lastUpdateDate > sixMonthsAgo;
 ---
@@ -57,7 +58,7 @@ const wasUpdatedInLastSixMonths =
                 {
                   entry.data.timeToRead && (
                     <span class="time-to-read">
-                      • {entry.data.timeToRead} min read
+                      {entry.data.timeToRead} min read
                     </span>
                   )
                 }
@@ -139,6 +140,7 @@ const wasUpdatedInLastSixMonths =
     }
 
     .description {
+      color: var(--gray-300);
       font-size: var(--text-lg);
       max-width: 54ch;
     }
@@ -366,7 +368,6 @@ const wasUpdatedInLastSixMonths =
       }
 
       .details {
-        flex-direction: row;
         gap: 2.5rem;
       }
 
