@@ -2,6 +2,7 @@
 title: "VSCode Shortcuts & Snippets: From Chaos to Muscle Memory"
 description: "Master VSCode shortcuts and build muscle memory for efficient coding. Learn essential shortcuts, customization techniques, and how to think in actions, not keys."
 publishDate: 2024-10-19
+timeToRead: 5
 tags: ["productivity", "vscode", "shortcuts"]
 author: "Aridane Martín"
 img: "/assets/blog/vscode-shortcuts-snippets/shortcutsCover.webp"

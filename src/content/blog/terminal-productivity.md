@@ -2,6 +2,7 @@
 title: "Terminal Productivity: Why the Mouse Doesn't Belong Here"
 description: "Master terminal productivity with keyboard shortcuts, aliases, and automation. Learn why the mouse doesn't belong in your terminal and how to work efficiently."
 publishDate: 2024-10-12
+timeToRead: 6
 tags: ["productivity", "terminal", "keyboard"]
 author: "Aridane Martín"
 img: "/assets/blog/terminal-productivity/terminalProductivityCover.webp"

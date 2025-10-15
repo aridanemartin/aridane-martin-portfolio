@@ -2,6 +2,9 @@
 title: "GitHub Copilot Strategies: Ask First, Then Code"
 description: "Master GitHub Copilot with strategic prompting and context management. Learn how to guide AI assistance effectively and make Copilot work for you."
 publishDate: 2024-10-08
+lastUpdateDate: 2025-10-15
+timeToRead: 5
+isActive: true
 tags: ["productivity", "ai", "copilot"]
 author: "Aridane Martín"
 img: "/assets/blog/github-copilot-strategies/githubCopilotStrategiesCover.webp"

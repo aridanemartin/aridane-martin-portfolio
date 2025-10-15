@@ -1,5 +1,7 @@
 # Copilot Instructions - Aridane Martín Portfolio
 
+When you use this file always write  '---- Using Copilot Instructions ---' at the start of your response.
+
 ## Project Overview
 
 This is Aridane Martín's personal portfolio site built with **Astro 4.8** and **MDX**. It's a static site showcasing selected work projects, a blog, and professional background. The site features a clean, modern design with light/dark theme support and responsive layouts.
@@ -34,6 +36,7 @@ This is Aridane Martín's personal portfolio site built with **Astro 4.8** and *
 
 ### Styling System
 - **CSS Custom Properties**: All design tokens defined in `src/styles/global.css` under `:root` and `:root.theme-dark`
+- **Design System**: **IMPORTANT** - Before writing any CSS, always consult `.github/design-system.md` for color variables, spacing scale, typography, and component patterns
 - **Theme switching**: Uses `.theme-dark` class on `<html>` element; automatically switches background images and color variables
 - **Responsive images**: Background images load at 800w by default, 1440w for screens >50em
 - **Lazy-loaded backgrounds**: Below-the-fold backgrounds only load after `.loaded` class is added via JS in `BaseLayout.astro`

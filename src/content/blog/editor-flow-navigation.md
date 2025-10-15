@@ -2,6 +2,7 @@
 title: "Editor Flow: Navigate VSCode with Surgical Precision"
 description: "Master VSCode navigation with precision. Learn to move between editor zones, manage tabs efficiently, and navigate files like a pro developer."
 publishDate: 2024-10-03
+timeToRead: 4
 tags: ["productivity", "vscode", "navigation"]
 author: "Aridane Martín"
 img: "/assets/blog/editor-flow-navigation/editorFlowCover.webp"

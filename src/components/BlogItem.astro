@@ -1,11 +1,16 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  article: CollectionEntry<'blog'>;
+  article: CollectionEntry<"blog">;
 }
 
 const { data, slug } = Astro.props.article;
+
+const sixMonthsAgo = new Date();
+sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+const isRecentlyUpdated =
+  data.lastUpdateDate && data.lastUpdateDate > sixMonthsAgo;
 ---
 
 <a class="card" href={`/blog/${slug}`}>
@@ -20,15 +25,23 @@ const { data, slug } = Astro.props.article;
     <h3 class="title">{data.title}</h3>
     <p class="description">{data.description}</p>
     <div class="meta">
-      <time datetime={data.publishDate.toISOString()}>
+      <div class="meta-row">
+        <time datetime={data.publishDate.toISOString()}>
+          {
+            data.publishDate.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
+        </time>
+        {isRecentlyUpdated && <span class="updated-badge">Updated</span>}
         {
-          data.publishDate.toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })
+          data.timeToRead && (
+            <span class="time-to-read">• {data.timeToRead} min read</span>
+          )
         }
-      </time>
+      </div>
       {
         data.tags && data.tags.length > 0 && (
           <div class="tags">
@@ -106,10 +119,33 @@ const { data, slug } = Astro.props.article;
     margin-top: auto;
   }
 
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
   time {
     color: var(--gray-500);
     font-size: var(--text-xs);
     font-weight: 500;
+  }
+
+  .time-to-read {
+    color: var(--gray-500);
+    font-size: var(--text-xs);
+    font-weight: 500;
+  }
+
+  .updated-badge {
+    background: var(--badge-updated-bg);
+    color: var(--badge-updated-text);
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.75rem;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
   }
 
   .tags {
