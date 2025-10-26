@@ -57,10 +57,18 @@ const { Content } = await entry.render();
           </div>
           <div class="url">
             {
-              entry.data.url && (
+              entry.data.url ? (
                 <a href={entry.data.url} target="_blank" rel="noopener">
                   {entry.data.url}
                 </a>
+              ) : (
+                <div class="url-unavailable">
+                  <p>This page is not available at the moment.</p>
+                  <p>
+                    You can continue visiting all my work{" "}
+                    <a href="/work/">here</a>.
+                  </p>
+                </div>
               )
             }
           </div>
@@ -137,6 +145,31 @@ const { Content } = await entry.render();
 
   .content :global(ul) {
     padding: 0 1.5rem;
+  }
+
+  .url-unavailable {
+    padding: 2rem;
+    background: var(--gray-999);
+    border: 1px solid var(--gray-800);
+    border-radius: 0.75rem;
+    text-align: center;
+  }
+
+  .url-unavailable p {
+    margin: 0.5rem 0;
+    color: var(--gray-300);
+  }
+
+  .url-unavailable a {
+    color: var(--accent-regular);
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+    transition: color var(--theme-transition);
+  }
+
+  .url-unavailable a:hover,
+  .url-unavailable a:focus {
+    color: var(--accent-dark);
   }
 
   .back-link,

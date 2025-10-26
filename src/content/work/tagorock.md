@@ -9,7 +9,7 @@ tags:
   - Dev
   - Branding
   - Backend
-url: https://www.tagorock.com
+
 ---
 
 > Tagorock Mundo Vertical - Climbing and Mountain Life Experts
