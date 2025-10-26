@@ -1,7 +1,7 @@
 ---
 title: Open developer tools
 publishDate: 2025-01-07 00:00:00
-img: /assets/works/openDeveloperTools.png
+img: /assets/works/smallOpenDev.webp
 img_alt: Open developer tools logo with chrome web store tag
 description: |
   Boost Your Productivity with Open developer tools Chrome extension!
