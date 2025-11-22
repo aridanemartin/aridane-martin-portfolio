@@ -26,13 +26,18 @@ const isRecentlyUpdated =
     <p class="description">{data.description}</p>
     <div class="meta">
       <div class="meta-row">
-        <time datetime={data.publishDate.toISOString()}>
+        <time
+          datetime={(data.lastUpdateDate || data.publishDate).toISOString()}
+        >
           {
-            data.publishDate.toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
+            (data.lastUpdateDate || data.publishDate).toLocaleDateString(
+              "en-US",
+              {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }
+            )
           }
         </time>
         {isRecentlyUpdated && <span class="updated-badge">Updated</span>}

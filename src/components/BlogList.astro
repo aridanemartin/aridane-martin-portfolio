@@ -4,7 +4,11 @@ import BlogItem from "./BlogItem.astro";
 
 const articles = (await getCollection("blog"))
   .filter((article) => article.data.isActive !== false)
-  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+  .sort((a, b) => {
+    const dateA = a.data.lastUpdateDate || a.data.publishDate;
+    const dateB = b.data.lastUpdateDate || b.data.publishDate;
+    return dateB.valueOf() - dateA.valueOf();
+  });
 ---
 
 <ul class="blog-list">

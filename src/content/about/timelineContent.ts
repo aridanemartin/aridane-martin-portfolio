@@ -13,16 +13,18 @@ export const timelineContent = [
     year: '2024',
     description:
       'As part of my work at Openbank, I contributed as a Senior Frontend Developer within the UK Cards domain, where we applied Hexagonal Architecture and Domain-Driven Design (DDD) principles to build robust and scalable solutions. Later, I took on the role of Tech Lead in the integration of the Pandora cash register software for the Polish market, leading the frontend efforts in a highly collaborative and cross-functional environment.',
-    image: '/assets/timeline/SCNPA.webp',
-    imageDescription: 'With my dear friends Juanma and Carlos at the SCNPA conference.',
+    image: '/assets/timeline/openbankTalk.webp',
+    imageDescription: 'Productivity and AI talk at the Openbank OpenCommit Fest conference.',
   },
   {
     title: 'SpainSkills Mentor',
     year: '2023',
     description:
       "I was selected to mentor Kilian Sosa, the winner of the SpainSkills competition in the Canary Islands. In collaboration with 'El Rincón', I prepared him to compete in this national competition that showcases the skills of young professionals in various fields.",
-    image: '/assets/timeline/kilian.webp',
-    imageDescription: 'With my student Kilian attending a developers conference',
+    // image: '/assets/timeline/kilian.webp',
+    // imageDescription: 'With my student Kilian attending a developers conference',
+    image: '/assets/timeline/SCNPA.webp',
+    imageDescription: 'With my dear friends Juanma and Carlos at the SCNPA conference.',
   },
   {
     title: 'Douglas',

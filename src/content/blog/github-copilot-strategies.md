@@ -1,11 +1,11 @@
 ---
 title: "GitHub Copilot Strategies: Ask First, Then Code"
-description: "Master GitHub Copilot with strategic prompting and context management. Learn how to guide AI assistance effectively and make Copilot work for you."
+description: "Master GitHub Copilot with strategic prompting and context management. Learn how to guide AI assistance effectively and make Copilot work for you and not against you."
 publishDate: 2025-10-10
 lastUpdateDate: 2025-10-15
 timeToRead: 5
 isActive: true
-tags: ["productivity", "ai", "copilot"]
+tags: ["prompting", "ai", "copilot"]
 author: "Aridane Martín"
 img: "/assets/blog/github-copilot-strategies/githubCopilotStrategiesCover.webp"
 img_alt: "GitHub Copilot strategies and AI assistance for developers"
@@ -19,6 +19,14 @@ _Conference: OpenCommit Fest_
 
 GitHub Copilot can be a great coding partner if you guide it right. This guide will teach you some strategies to make AI work for you and not against you.
 
+## Understanding the AI Sweet Spot
+
+
+The key to effective AI assistance lies in finding the **sweet spot** between two extremes: pure hallucination and perfectly desired results. AI models like Copilot work best when you provide enough context and constraints to guide them toward your goals, but not so much rigidity that you lose their creative problem-solving abilities. 
+
+![AI Sweet Spot visualization](/assets/blog/github-copilot-strategies/aiSweetSpot.webp)
+
+The strategies below will help you navigate this balance, turning Copilot from a source of random suggestions into a reliable coding partner.
 
 ## Strategy 1: Ask First, Then Do
 
@@ -152,28 +160,19 @@ section/
 
 ---
 
-## Common Mistakes When Using Copilot
+## Avoiding Common Pitfalls
 
-### 1. Typing without context
+Even with the right strategies, it's easy to fall into common traps when using Copilot. Learn from the mistakes others make:
 
-**Problem:** "It just autocompletes nonsense."
+👉 **[Read: Common Mistakes When Using GitHub Copilot (and How to Fix Them)](/blog/common-copilot-mistakes)**
 
-**Fix:** Add a comment explaining your intent before coding. Even `// Create a user authentication endpoint` dramatically improves suggestions.
-
-### 2. Over-trusting suggestions
-
-**Problem:** "It looks right… until you run it."
-
-**Fix:** Treat suggestions as a starting point. Always review, test, and verify it handles your specific requirements.
-
-### 3. Forgetting to explain intent
-
-**Problem:** "Copilot can't read your mind — only your comments."
-
-**Fix:** Think of Copilot as a junior developer. Explain what you want, why you're doing it, and any constraints.
+This dedicated guide covers:
+- ❌ Typing without context (and how to provide it)
+- ❌ Over-trusting suggestions (and how to review critically)
+- ❌ Forgetting to explain intent (and how to write better prompts)
+- ❌ Not iterating on responses (and how to refine through conversation)
 
 ---
-
 
 ## BONUS: Creating AI Agents with Full Codebase Context
 
