@@ -1,6 +1,6 @@
 ---
-title: "Create your first Agent"
-subtitle: "Get the most out of Copilot and Repomix"
+title: "Create your first Copilot Agent with full context"
+subtitle: "Learn to feed the beast! 🤖"
 description: "Learn how to create AI agents that understand your entire codebase using Repomix and GitHub Copilot. Build intelligent assistants for your development team."
 publishDate: 2025-10-13
 timeToRead: 4

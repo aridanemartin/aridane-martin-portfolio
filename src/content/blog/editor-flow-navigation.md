@@ -1,6 +1,6 @@
 ---
-title: "Editor Flow"
-subtitle: "Navigate VSCode with Surgical Precision"
+title: "Surf through your codebase with precision"
+subtitle: "Master files and zones navigation 🏄🏼‍♀️"
 description: "Master VSCode navigation with precision. Learn to move between editor zones, manage tabs efficiently, and navigate files like a pro developer."
 publishDate: 2025-10-03
 timeToRead: 4

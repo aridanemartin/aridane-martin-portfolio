@@ -1,6 +1,6 @@
 ---
 title: "GitHub Copilot Prompting Strategies"
-subtitle: "Make Copilot work for you and not against you"
+subtitle: "Work with Copilot, not against it ✈️"
 description: "Master GitHub Copilot with strategic prompting and context management. Learn how to guide AI assistance effectively and make Copilot work for you and not against you."
 publishDate: 2025-10-10
 lastUpdateDate: 2025-10-15

@@ -1,6 +1,6 @@
 ---
-title: "VSCode Shortcuts & Snippets"
-subtitle: "From Chaos to Muscle Memory"
+title: "Rethink your VSCode Shortcuts & Snippets! 🤔"
+subtitle: "From Chaos to Muscle Memory 💪🏽"
 description: "Master VSCode shortcuts and build muscle memory for efficient coding. Learn essential shortcuts, customization techniques, and how to think in actions, not keys."
 publishDate: 2025-10-04
 lastUpdateDate: 2025-10-06

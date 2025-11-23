@@ -1,6 +1,6 @@
 ---
-title: "Terminal Productivity and Shortcuts"
-subtitle: "Feel like a 🐒 in the jungle!"
+title: "Enhance your Terminal Productivity"
+subtitle: "Feel like a pro in the terminal jungle! 🐒"
 description: "Master terminal productivity with keyboard shortcuts, aliases, and automation. Learn why the mouse doesn't belong in your terminal and how to work efficiently."
 publishDate: 2025-11-22
 timeToRead: 6
