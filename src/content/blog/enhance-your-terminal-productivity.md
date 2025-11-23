@@ -38,7 +38,7 @@ Cmd + N        # New terminal tab
 Cmd + W        # Close terminal 
 ```
 
-As explained in [VSCode Shortcuts & Snippets](/blog/vscode-shortcuts-snippets) I try to keep the same shortcuts for the same actions across all my tools and `W` is always used to close something and `N` for new something.
+As explained in [VSCode Shortcuts & Snippets](/blog/rethink-your-vscode-shortcuts-and-snippets) I try to keep the same shortcuts for the same actions across all my tools and `W` is always used to close something and `N` for new something.
 
 ### Navigation Shortcuts
 

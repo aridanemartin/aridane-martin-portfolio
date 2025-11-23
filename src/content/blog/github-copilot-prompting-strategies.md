@@ -69,7 +69,7 @@ This strategy allows you to refine every step and what's done in each step. You 
 ## Strategy 3: Role-Based Prompting
 
 One of the most effective ways to improve Copilot’s responses is to **define a role** before asking your question.  
-By telling the AI *who* it should act as, you shape its expertise, tone, and level of abstraction. This is a common approach when defining agents, if you're interested in that check out my article on [Creating AI Agents with Full Codebase Context](/blog/create-first-agent-copilot-repomix).
+By telling the AI *who* it should act as, you shape its expertise, tone, and level of abstraction. This is a common approach when defining agents, if you're interested in that check out my article on [Creating AI Agents with Full Codebase Context](/blog/create-your-first-copilot-agent-with-full-context).
 
 For example:
 
@@ -165,7 +165,7 @@ section/
 
 Even with the right strategies, it's easy to fall into common traps when using Copilot. Learn from the mistakes others make:
 
-👉 **[Read: Common Mistakes When Using GitHub Copilot (and How to Fix Them)](/blog/common-copilot-mistakes)**
+👉 **[Read: Common Mistakes When Using GitHub Copilot (and How to Fix Them)](/blog/common-mistakes-when-using-github-copilot)**
 
 This dedicated guide covers:
 - ❌ Typing without context (and how to provide it)
@@ -179,7 +179,7 @@ This dedicated guide covers:
 
 Want to take your Copilot usage to the next level? Learn how to create AI agents that understand your entire codebase using Repomix and GitHub Copilot. This advanced technique allows you to build intelligent assistants for your development team.
 
-👉 **[Read: Create your first Agent using Copilot and Repomix](/blog/create-first-agent-copilot-repomix)**
+👉 **[Read: Create your first Agent using Copilot and Repomix](/blog/create-your-first-copilot-agent-with-full-context)**
 
 ---
 

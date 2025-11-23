@@ -277,8 +277,8 @@ Let's see how avoiding these mistakes looks in practice.
 
 Want to dive deeper into Copilot strategies? Check out these related articles:
 
-- **[GitHub Copilot Strategies: Ask First, Then Code](/blog/github-copilot-strategies)** — Learn strategic prompting patterns and role-based techniques
-- **[Create Your First AI Agent with Copilot and Repomix](/blog/create-first-agent-copilot-repomix)** — Build intelligent assistants with full codebase context
+- **[GitHub Copilot Strategies: Ask First, Then Code](/blog/github-copilot-prompting-strategies)** — Learn strategic prompting patterns and role-based techniques
+- **[Create Your First AI Agent with Copilot and Repomix](/blog/create-your-first-copilot-agent-with-full-context)** — Build intelligent assistants with full codebase context
 
 ---
 
