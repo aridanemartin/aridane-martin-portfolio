@@ -1,5 +1,6 @@
 ---
-title: "GitHub Copilot Strategies: Ask First, Then Code"
+title: "GitHub Copilot Prompting Strategies"
+subtitle: "Make Copilot work for you and not against you"
 description: "Master GitHub Copilot with strategic prompting and context management. Learn how to guide AI assistance effectively and make Copilot work for you and not against you."
 publishDate: 2025-10-10
 lastUpdateDate: 2025-10-15
@@ -13,7 +14,7 @@ img_alt: "GitHub Copilot strategies and AI assistance for developers"
 
 **Author:** Aridane Martín  
 **Tech Lead – Pandora Project | Software Developer**  
-_Conference: OpenCommit Fest_
+**Talk:** Boosting Productivity: Shortcut your coding
 
 ---
 

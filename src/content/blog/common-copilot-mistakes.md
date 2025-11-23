@@ -1,5 +1,6 @@
 ---
-title: "Common Mistakes When Using GitHub Copilot (and How to Fix Them)"
+title: "Common Mistakes When Using GitHub Copilot"
+subtitle: "and How to Fix Them! 🐳"
 description: "Avoid these common pitfalls when using GitHub Copilot. Learn how to write better prompts, review AI suggestions critically, and iterate effectively for better code quality."
 publishDate: 2025-10-02
 lastUpdateDate: 2025-10-02

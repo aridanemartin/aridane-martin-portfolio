@@ -1,5 +1,6 @@
 ---
-title: "Desktop Flow for Developers: Stop Dragging, Start Snapping"
+title: "Desktop Flow for Developers"
+subtitle: "Stop Dragging, Start Snapping"
 description: "Master efficient window management with Rectangle, Raycast, and AltTab. Transform your desktop workflow from dragging windows to instant alignment and navigation."
 publishDate: 2025-10-15
 timeToRead: 4
@@ -11,7 +12,7 @@ img_alt: "Desktop flow tools for developers - Rectangle shortcuts and window man
 
 **Author:** Aridane Martín  
 **Tech Lead – Pandora Project | Software Developer**  
-_Conference: OpenCommit Fest_
+**Talk:** Boosting Productivity: Shortcut your coding
 
 ---
 

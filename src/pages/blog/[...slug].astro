@@ -34,7 +34,11 @@ const wasUpdatedInLastSixMonths =
       <header>
         <div class="wrapper stack gap-2">
           <a class="back-link" href="/blog/"><Icon icon="arrow-left" /> blog</a>
-          <Hero title={entry.data.title} align="start">
+          <Hero
+            title={entry.data.title}
+            subtitle={entry.data.subtitle}
+            align="start"
+          >
             <div class="details">
               <div class="tags">
                 {entry.data.tags.map((t) => <Pill>{t}</Pill>)}

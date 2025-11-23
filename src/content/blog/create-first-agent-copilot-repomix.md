@@ -1,5 +1,6 @@
 ---
-title: "Create your first Agent using Copilot and Repomix"
+title: "Create your first Agent"
+subtitle: "Get the most out of Copilot and Repomix"
 description: "Learn how to create AI agents that understand your entire codebase using Repomix and GitHub Copilot. Build intelligent assistants for your development team."
 publishDate: 2025-10-13
 timeToRead: 4
@@ -11,7 +12,7 @@ img_alt: "Creating AI agents with Copilot and Repomix for codebase understanding
 
 **Author:** Aridane Martín  
 **Tech Lead – Pandora Project | Software Developer**  
-_Conference: OpenCommit Fest_
+**Talk:** Boosting Productivity: Shortcut your coding
 
 ---
 
