@@ -26,9 +26,20 @@ sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
 
 const wasUpdatedInLastSixMonths =
   entry.data.lastUpdateDate && entry.data.lastUpdateDate > sixMonthsAgo;
+
+const metadata = {
+  title: entry.data.title,
+  description: entry.data.description,
+  image: entry.data.img,
+  imageAlt: entry.data.img_alt,
+  publishDate: entry.data.publishDate,
+  author: entry.data.author,
+  tags: entry.data.tags,
+  type: "article" as const,
+};
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description}>
+<BaseLayout {...metadata}>
   <div class="stack gap-20">
     <div class="stack gap-15">
       <header>
@@ -266,8 +277,9 @@ const wasUpdatedInLastSixMonths =
       margin: 1.5rem 0;
       padding: 1.5rem;
       overflow-x: auto;
-      font-family: "JetBrains Mono", "Fira Code", "Monaco", "Cascadia Code",
-        "Roboto Mono", monospace;
+      font-family:
+        "JetBrains Mono", "Fira Code", "Monaco", "Cascadia Code", "Roboto Mono",
+        monospace;
       font-size: var(--text-sm);
       line-height: 1.6;
       color: var(--gray-200);
@@ -288,8 +300,9 @@ const wasUpdatedInLastSixMonths =
       color: var(--accent-light);
       padding: 0.125rem 0.375rem;
       border-radius: 0.25rem;
-      font-family: "JetBrains Mono", "Fira Code", "Monaco", "Cascadia Code",
-        "Roboto Mono", monospace;
+      font-family:
+        "JetBrains Mono", "Fira Code", "Monaco", "Cascadia Code", "Roboto Mono",
+        monospace;
       font-size: 0.875em;
       font-weight: 500;
     }

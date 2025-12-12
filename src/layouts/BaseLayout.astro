@@ -2,23 +2,31 @@
 // Learn about using Astro layouts:
 // https://docs.astro.build/en/core-concepts/layouts/
 
-import { ViewTransitions } from 'astro:transitions';
-import Footer from '../components/Footer.astro';
+import { ViewTransitions } from "astro:transitions";
+import Footer from "../components/Footer.astro";
 // Component Imports
-import MainHead from '../components/MainHead.astro';
-import Nav from '../components/Nav.astro';
+import MainHead from "../components/MainHead.astro";
+import Nav from "../components/Nav.astro";
 
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
+  image?: string | undefined;
+  imageAlt?: string | undefined;
+  publishDate?: Date | undefined;
+  author?: string | undefined;
+  tags?: string[] | undefined;
+  type?: "website" | "article";
 }
 
-const { title, description } = Astro.props;
+const metadata = Astro.props;
+const { title, description, image, imageAlt, publishDate, author, tags, type } =
+  metadata;
 ---
 
 <html lang="en">
   <head>
-    <MainHead title={title} description={description} />
+    <MainHead {...metadata} />
     <ViewTransitions />
   </head>
   <body>
