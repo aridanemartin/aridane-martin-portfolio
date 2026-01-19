@@ -1,15 +1,17 @@
 ---
 title: "Agent Skills Part 1: Getting Started with SKILL.md"
-publishDate: 2026-01-15
-img: ./_images/agentSkillsGettingStartedCover.webp
-img_alt: AI generated image of three beavers fixing a computer
+subtitle: "Your first step into dynamic AI context 🚀"
 description: Learn the fundamentals of Agent Skills — how SKILL.md files work, the progressive disclosure model, and when to use skills vs. rules for your AI coding assistant.
+publishDate: 2026-01-15
+timeToRead: 4
 tags:
   - AI
   - Productivity
   - VS Code
   - GitHub Copilot
-timeToRead: 4
+author: "Aridane Martín"
+img: ./_images/agentSkillsGettingStartedCover.webp
+img_alt: AI generated image of three beavers fixing a computer
 ---
 
 If you've been working with AI coding assistants, you've probably encountered the challenge of providing context: either you dump everything into a massive system prompt, or the AI lacks the specialized knowledge it needs for specific tasks.
