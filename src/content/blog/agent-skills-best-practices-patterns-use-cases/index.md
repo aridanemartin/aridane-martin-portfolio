@@ -497,18 +497,19 @@ This checks that your `SKILL.md` frontmatter is valid and follows all naming con
 
 | Resource | Description |
 |----------|-------------|
-| [agentskills.io](https://agentskills.io/) | Official Agent Skills homepage |
-| [Specification](https://agentskills.io/specification) | Complete SKILL.md format specification |
-| [What are Skills?](https://agentskills.io/what-are-skills) | Conceptual overview of progressive disclosure |
+| [agentskills.io](https://agentskills.io/) | Official Agent Skills homepage, SKILL.md format specification, and conceptual overview |
 | [Authoring Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) | Claude's guide to writing effective skills |
 | [Windsurf Skills Docs](https://docs.windsurf.com/windsurf/cascade/skills) | Windsurf implementation with UI creation |
 | [VS Code Skills Docs](https://code.visualstudio.com/docs/copilot/copilot-customization) | VS Code Copilot customization guide |
 
 ### 🎥 Recommended Videos
 
-| Video | Channel | Description |
-|-------|---------|-------------|
-| [Agent Skills Explained](https://www.youtube.com/results?search_query=agent+skills+SKILL.md) | — | Search for latest tutorials on Agent Skills |
+
+### 🎥 Recommended Videos
+
+- [Introducing Agent Skills in VS Code - YouTube](https://www.youtube.com/watch?v=JepVi1tBNEE&t=61s)
+- [The Skills System That Changed How I Work with AI (Complete Course) - YouTube](https://www.youtube.com/watch?v=Nvn6s3r9ZAw)
+- [5 Mind-Blowing Use Cases of Claude Skills - YouTube](https://www.youtube.com/watch?v=HCwfRe5EHGQ&t=266s)
 
 > 💡 **Know a great video or article about Agent Skills?** The ecosystem is evolving fast — community contributions help everyone learn.
 

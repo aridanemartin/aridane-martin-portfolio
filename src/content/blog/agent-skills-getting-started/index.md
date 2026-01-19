@@ -170,12 +170,12 @@ AI coding assistants support multiple types of customization. Understanding when
 ### MCP Servers (External Capabilities)
 
 **Purpose:** Connect AI to external tools and services.
+- Real-time data access
 
 **Best for:**
 - Database queries
 - API integrations
 - File system operations beyond the workspace
-- Real-time data access
 
 ### The Decision Matrix
 
