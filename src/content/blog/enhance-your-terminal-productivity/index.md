@@ -7,7 +7,7 @@ timeToRead: 6
 isActive: true
 tags: ["productivity", "terminal", "keyboard"]
 author: "Aridane Martín"
-img: "/assets/blog/terminal-productivity/terminal-article.webp"
+img: "./_images/enhanceTerminalProductivityCover.webp"
 img_alt: "Terminal productivity and keyboard shortcuts for developers"
 ---
 

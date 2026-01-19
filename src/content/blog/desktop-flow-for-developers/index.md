@@ -6,7 +6,7 @@ publishDate: 2025-10-15
 timeToRead: 4
 tags: ["productivity", "window-management", "macos"]
 author: "Aridane Martín"
-img: "/assets/blog/desktop-flow-for-developers/desktopFlowForDevelopersCover.webp"
+img: "./_images/desktopFlowForDevelopersCover.webp"
 img_alt: "Desktop flow tools for developers - Rectangle shortcuts and window management"
 ---
 

@@ -6,7 +6,7 @@ publishDate: 2025-10-13
 timeToRead: 4
 tags: ["productivity", "ai", "copilot", "agents", "repomix"]
 author: "Aridane Martín"
-img: "/assets/blog/create-first-agent-copilot-repomix/createFirstAgentCopilot.webp"
+img: "./_images/createFirstCopilotAgentCover.webp"
 img_alt: "Creating AI agents with Copilot and Repomix for codebase understanding"
 ---
 

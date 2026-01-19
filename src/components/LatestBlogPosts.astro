@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Icon from "./Icon.astro";
 
@@ -28,12 +29,21 @@ const blogPosts = (await getCollection("blog"))
       blogPosts.map((post) => (
         <a href={`/blog/${post.slug}`} class="post-card">
           <div class="post-image">
-            <img
-              src={post.data.img || "/assets/stock-1.jpg"}
-              alt={post.data.img_alt || post.data.title}
-              loading="lazy"
-              decoding="async"
-            />
+            {post.data.img ? (
+              <Image
+                src={post.data.img}
+                alt={post.data.img_alt || post.data.title}
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <img
+                src="/assets/stock-1.jpg"
+                alt={post.data.img_alt || post.data.title}
+                loading="lazy"
+                decoding="async"
+              />
+            )}
           </div>
           <div class="post-content">
             <h3 class="post-title">{post.data.title}</h3>

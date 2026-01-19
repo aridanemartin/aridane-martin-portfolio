@@ -8,7 +8,7 @@ timeToRead: 5
 isActive: true
 tags: ["prompting", "ai", "copilot"]
 author: "Aridane Martín"
-img: "/assets/blog/github-copilot-strategies/githubCopilotStrategiesCover.webp"
+img: "./_images/githubCopilotPromptingStrategiesCover.webp"
 img_alt: "GitHub Copilot strategies and AI assistance for developers"
 ---
 

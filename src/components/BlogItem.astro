@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -14,13 +15,25 @@ const isRecentlyUpdated =
 ---
 
 <a class="card" href={`/blog/${slug}`}>
-  <img
-    transition:name={`blog-image-${slug}`}
-    src={data.img || "/assets/stock-1.jpg"}
-    alt={data.img_alt || data.title}
-    loading="lazy"
-    decoding="async"
-  />
+  {
+    data.img ? (
+      <Image
+        transition:name={`blog-image-${slug}`}
+        src={data.img}
+        alt={data.img_alt || data.title}
+        loading="lazy"
+        decoding="async"
+      />
+    ) : (
+      <img
+        transition:name={`blog-image-${slug}`}
+        src="/assets/stock-1.jpg"
+        alt={data.img_alt || data.title}
+        loading="lazy"
+        decoding="async"
+      />
+    )
+  }
   <div class="content">
     <div class="title-group">
       <h3 class="title">{data.title}</h3>
@@ -39,7 +52,7 @@ const isRecentlyUpdated =
                 year: "numeric",
                 month: "long",
                 day: "numeric",
-              }
+              },
             )
           }
         </time>

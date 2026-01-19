@@ -7,7 +7,7 @@ timeToRead: 4
 isActive: true
 tags: ["vscode", "copilot", "productivity", "prompts"]
 author: "Aridane Martín"
-img: "/assets/blog/prompt-files-in-vscode/promptFilesInVscode.webp"
+img: "./_images/vscodePromptFilesCover.webp"
 img_alt: "VS Code prompt files configuration and execution"
 ---
 

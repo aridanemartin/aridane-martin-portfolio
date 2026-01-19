@@ -6,7 +6,7 @@ publishDate: 2025-10-03
 timeToRead: 4
 tags: ["productivity", "vscode", "navigation"]
 author: "Aridane Martín"
-img: "/assets/blog/editor-flow-navigation/editorFlowCover.webp"
+img: "./_images/surfThroughCodebaseCover.webp"
 img_alt: "VSCode editor navigation and workflow for developers"
 ---
 

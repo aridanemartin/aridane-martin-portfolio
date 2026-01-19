@@ -8,7 +8,7 @@ timeToRead: 6
 isActive: true
 tags: ["copilot", "ai", "best-practices", "prompting"]
 author: "Aridane Martín"
-img: "/assets/blog/common-copilot-mistakes/whaleCoding2.webp"
+img: "./_images/commonMistakesGithubCopilotCover.webp"
 img_alt: "Common mistakes developers make when using GitHub Copilot"
 ---
 

@@ -7,7 +7,7 @@ lastUpdateDate: 2025-10-06
 timeToRead: 5
 tags: ["productivity", "vscode", "shortcuts"]
 author: "Aridane Martín"
-img: "/assets/blog/vscode-shortcuts-snippets/shortcutsCover.webp"
+img: "./_images/rethinkVscodeShortcutsSnippetsCover.webp"
 img_alt: "VSCode shortcuts and keyboard productivity for developers"
 ---
 
