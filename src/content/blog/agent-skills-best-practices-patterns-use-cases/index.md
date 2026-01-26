@@ -504,9 +504,6 @@ This checks that your `SKILL.md` frontmatter is valid and follows all naming con
 
 ### 🎥 Recommended Videos
 
-
-### 🎥 Recommended Videos
-
 - [Introducing Agent Skills in VS Code - YouTube](https://www.youtube.com/watch?v=JepVi1tBNEE&t=61s)
 - [The Skills System That Changed How I Work with AI (Complete Course) - YouTube](https://www.youtube.com/watch?v=Nvn6s3r9ZAw)
 - [5 Mind-Blowing Use Cases of Claude Skills - YouTube](https://www.youtube.com/watch?v=HCwfRe5EHGQ&t=266s)
