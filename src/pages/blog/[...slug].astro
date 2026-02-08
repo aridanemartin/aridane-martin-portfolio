@@ -190,13 +190,18 @@ const metadata = {
       left: 0;
       right: 0;
       z-index: 9999;
-      transform: translateZ(0);
-      -webkit-transform: translateZ(0);
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
       background: var(--gray-999);
       box-shadow: var(--shadow-md);
       transition:
         background 0.3s ease,
         box-shadow 0.3s ease;
+      height: auto;
+      min-height: 0;
+      contain: layout style;
     }
 
     :root:not(.theme-dark) :global(nav.hero-scrolled) {
@@ -590,6 +595,18 @@ const metadata = {
         const handleViewport = (e: MediaQueryList | MediaQueryListEvent) => {
           if (e.matches && !listening) {
             window.addEventListener("scroll", onScroll, { passive: true });
+            // Listen for visual viewport resize (Chrome address bar show/hide)
+            if (window.visualViewport) {
+              window.visualViewport.addEventListener("resize", () => {
+                const nav = document.querySelector("nav");
+                if (nav?.classList.contains("hero-scrolled")) {
+                  nav.style.transform = "translate3d(0, 0, 0)";
+                  requestAnimationFrame(() => {
+                    nav.style.transform = "translate3d(0, 0, 0)";
+                  });
+                }
+              });
+            }
             listening = true;
             lastScrollY = window.scrollY;
             updateHero();
