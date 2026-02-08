@@ -186,9 +186,10 @@ const metadata = {
     /* ===== Nav hero-scrolled state (mobile only) ===== */
     :global(nav.hero-scrolled) {
       position: fixed;
-      top: 0;
+      top: env(safe-area-inset-top, 0px);
       left: 0;
       right: 0;
+      z-index: 9999;
       background: var(--gray-999);
       box-shadow: var(--shadow-md);
       transition:
