@@ -212,7 +212,6 @@ const iconLinks: {
   }
 
   .menu-button[aria-expanded="true"] {
-    color: var(--gray-0);
     background: transparent;
   }
 
@@ -379,5 +378,9 @@ const iconLinks: {
     .link.active {
       color: SelectedItem;
     }
+  }
+
+  :global(:root.theme-dark) .menu-button {
+    color: var(--gray-0);
   }
 </style>
