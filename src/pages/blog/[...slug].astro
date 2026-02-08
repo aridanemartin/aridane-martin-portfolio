@@ -43,6 +43,21 @@ const metadata = {
 <BaseLayout {...metadata}>
   <div class="stack gap-20">
     <div class="stack gap-15">
+      {
+        entry.data.img && (
+          <div class="blog-hero" id="blog-hero">
+            <div class="blog-hero__image-wrapper" id="blog-hero-image">
+              <Image
+                transition:name={`blog-image-${entry.slug}`}
+                src={entry.data.img}
+                alt={entry.data.img_alt || ""}
+                class="blog-hero__image"
+              />
+              <div class="blog-hero__overlay" />
+            </div>
+          </div>
+        )
+      }
       <header>
         <div class="wrapper stack gap-2">
           <a class="back-link" href="/blog/"><Icon icon="arrow-left" /> blog</a>
@@ -55,6 +70,16 @@ const metadata = {
               <div class="tags">
                 {entry.data.tags.map((t) => <Pill>{t}</Pill>)}
               </div>
+              {
+                entry.data.img && (
+                  <div class="blog-desktop-image">
+                    <Image
+                      src={entry.data.img}
+                      alt={entry.data.img_alt || ""}
+                    />
+                  </div>
+                )
+              }
               <p class="description">{entry.data.description}</p>
               <div class="meta-info">
                 <time datetime={entry.data.publishDate.toISOString()}>
@@ -85,15 +110,6 @@ const metadata = {
       </header>
       <main class="wrapper">
         <div class="stack gap-10 content">
-          {
-            entry.data.img && (
-              <Image
-                transition:name={`blog-image-${entry.slug}`}
-                src={entry.data.img}
-                alt={entry.data.img_alt || ""}
-              />
-            )
-          }
           <div class="content">
             <Content />
           </div>
@@ -104,6 +120,95 @@ const metadata = {
   </div>
 
   <style>
+    /* ===== Blog Hero Image ===== */
+    .blog-hero {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: -2rem;
+    }
+
+    .blog-hero__image-wrapper {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      will-change: transform, opacity;
+      transform: scale(var(--hero-scale, 1.1));
+      opacity: var(--hero-opacity, 1);
+      transform-origin: center center;
+    }
+
+    .blog-hero__image {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .blog-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent var(--hero-overlay-transparent-stop),
+        var(--hero-overlay-color) var(--hero-overlay-color-stop)
+      );
+      pointer-events: none;
+    }
+
+    /* ===== Desktop: hide mobile hero, show inline image ===== */
+    .blog-desktop-image {
+      display: none;
+    }
+
+    @media (min-width: 50em) {
+      .blog-hero {
+        display: none;
+      }
+
+      .blog-desktop-image {
+        display: block;
+        max-width: 65ch;
+        margin-inline: auto;
+      }
+
+      .blog-desktop-image :global(img) {
+        width: 100%;
+        height: auto;
+        border-radius: 2rem;
+        box-shadow: var(--shadow-sm);
+        background: var(--gradient-subtle);
+        border: 1px solid var(--gray-800);
+        object-fit: cover;
+      }
+    }
+
+    /* ===== Nav hero-scrolled state (mobile only) ===== */
+    :global(nav.hero-scrolled) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--gray-999);
+      box-shadow: var(--shadow-md);
+      transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    :root:not(.theme-dark) :global(nav.hero-scrolled) {
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    :root:not(.theme-dark) :global(nav.hero-scrolled .main-logo) {
+      filter: invert(1);
+    }
+
+    :root:not(.theme-dark) :global(nav.hero-scrolled .menu-button) {
+      color: var(--gray-0);
+    }
+
+    /* ===== Header & Content ===== */
     header {
       padding-bottom: 2.5rem;
       border-bottom: 1px solid var(--gray-800);
@@ -421,7 +526,83 @@ const metadata = {
   </style>
 
   <script>
-    // Enhanced copy to clipboard functionality for code blocks
+    // ===== Hero image scroll animation (mobile only) =====
+    // Uses requestAnimationFrame + passive scroll for max performance
+    // Only mutates GPU-composited properties (transform, opacity)
+    // Guarded by matchMedia — activates/deactivates on viewport change
+    {
+      const heroImage = document.getElementById(
+        "blog-hero-image",
+      ) as HTMLElement | null;
+      const heroContainer = document.getElementById(
+        "blog-hero",
+      ) as HTMLElement | null;
+
+      if (heroImage && heroContainer) {
+        const START_SCALE = 1.1;
+        const END_SCALE = 1.0;
+        const SCALE_RANGE = START_SCALE - END_SCALE;
+        const mobileQuery = window.matchMedia("(max-width: 49.99em)");
+
+        let ticking = false;
+        let lastScrollY = 0;
+        let listening = false;
+
+        const updateHero = () => {
+          const heroHeight = heroContainer.offsetHeight;
+          const scrollY = lastScrollY;
+          const progress = Math.min(scrollY / heroHeight, 1);
+
+          const scale = START_SCALE - progress * SCALE_RANGE;
+          const opacity = 1 - progress * 0.85;
+
+          heroImage.style.setProperty("--hero-scale", String(scale));
+          heroImage.style.setProperty(
+            "--hero-opacity",
+            String(Math.max(opacity, 0)),
+          );
+
+          const nav = document.querySelector("nav");
+          if (nav) {
+            nav.classList.toggle("hero-scrolled", progress >= 0.85);
+          }
+
+          ticking = false;
+        };
+
+        const onScroll = () => {
+          lastScrollY = window.scrollY;
+          if (!ticking) {
+            requestAnimationFrame(updateHero);
+            ticking = true;
+          }
+        };
+
+        const resetHero = () => {
+          heroImage.style.removeProperty("--hero-scale");
+          heroImage.style.removeProperty("--hero-opacity");
+          document.querySelector("nav")?.classList.remove("hero-scrolled");
+        };
+
+        const handleViewport = (e: MediaQueryList | MediaQueryListEvent) => {
+          if (e.matches && !listening) {
+            window.addEventListener("scroll", onScroll, { passive: true });
+            listening = true;
+            lastScrollY = window.scrollY;
+            updateHero();
+          } else if (!e.matches && listening) {
+            window.removeEventListener("scroll", onScroll);
+            listening = false;
+            resetHero();
+          }
+        };
+
+        handleViewport(mobileQuery);
+        mobileQuery.addEventListener("change", handleViewport);
+      }
+    }
+
+    // ===== Enhanced copy to clipboard for code blocks =====
     document.addEventListener("DOMContentLoaded", () => {
       const codeBlocks = document.querySelectorAll(".content pre");
 

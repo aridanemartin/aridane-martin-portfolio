@@ -29,6 +29,10 @@
 
   --link-color: var(--accent-regular);
 
+  --hero-overlay-color: var(--gray-999);
+  --hero-overlay-transparent-stop: 75%;
+  --hero-overlay-color-stop: 90%;
+
   /* Gradients */
   --gradient-stop-1: var(--accent-light);
   --gradient-stop-2: var(--accent-regular);
@@ -111,6 +115,10 @@
   /* Badge colors - constant across themes */
   --badge-updated-bg: #7611a6;
   --badge-updated-text: #ffffff;
+
+  --hero-overlay-color: var(--gray-999);
+  --hero-overlay-transparent-stop: 30%;
+  --hero-overlay-color-stop: 90%;
 
   --link-color: var(--accent-dark);
 
