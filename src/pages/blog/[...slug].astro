@@ -183,6 +183,25 @@ const metadata = {
       }
     }
 
+    /* ===== Scroll container fix for Chrome mobile address bar ===== */
+    /* Makes .backgrounds the scroll container instead of viewport */
+    @media (max-width: 49.99em) {
+      :global(html),
+      :global(body) {
+        height: 100dvh;
+        max-height: 100dvh;
+        overflow: hidden;
+      }
+
+      :global(.backgrounds) {
+        height: 100dvh;
+        max-height: 100dvh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
     /* ===== Nav hero-scrolled visual state (mobile only) ===== */
     :global(nav.hero-scrolled) {
       background: var(--gray-999);
@@ -544,6 +563,20 @@ const metadata = {
         let lastScrollY = 0;
         let listening = false;
 
+        // Use .backgrounds wrapper as scroll container (SO fix for Chrome mobile address bar)
+        const getScrollContainer = (): HTMLElement | Window => {
+          return (
+            (document.querySelector(".backgrounds") as HTMLElement) || window
+          );
+        };
+
+        const getScrollY = (): number => {
+          const container = getScrollContainer();
+          return container instanceof Window
+            ? container.scrollY
+            : container.scrollTop;
+        };
+
         const updateHero = () => {
           const heroHeight = heroContainer.offsetHeight;
           const scrollY = lastScrollY;
@@ -567,7 +600,7 @@ const metadata = {
         };
 
         const onScroll = () => {
-          lastScrollY = window.scrollY;
+          lastScrollY = getScrollY();
           if (!ticking) {
             requestAnimationFrame(updateHero);
             ticking = true;
@@ -582,12 +615,14 @@ const metadata = {
 
         const handleViewport = (e: MediaQueryList | MediaQueryListEvent) => {
           if (e.matches && !listening) {
-            window.addEventListener("scroll", onScroll, { passive: true });
+            const container = getScrollContainer();
+            container.addEventListener("scroll", onScroll, { passive: true });
             listening = true;
-            lastScrollY = window.scrollY;
+            lastScrollY = getScrollY();
             updateHero();
           } else if (!e.matches && listening) {
-            window.removeEventListener("scroll", onScroll);
+            const container = getScrollContainer();
+            container.removeEventListener("scroll", onScroll);
             listening = false;
             resetHero();
           }
