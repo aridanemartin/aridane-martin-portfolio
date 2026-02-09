@@ -173,18 +173,10 @@ const iconLinks: {
 <style>
   nav {
     z-index: 9999;
-    position: sticky;
-    top: 0;
+    position: relative;
     font-family: var(--font-brand);
     font-weight: 500;
     margin-bottom: 0;
-  }
-
-  @media (min-width: 50em) {
-    nav {
-      position: relative;
-      top: auto;
-    }
   }
 
   .menu-header {
@@ -390,5 +382,13 @@ const iconLinks: {
 
   :global(:root.theme-dark) .menu-button {
     color: var(--gray-0);
+  }
+
+  /* Sticky nav only on blog article pages (mobile) */
+  @media (max-width: 49.99em) {
+    :global(html.is-blog-article) nav {
+      position: sticky;
+      top: 0;
+    }
   }
 </style>

@@ -184,16 +184,16 @@ const metadata = {
     }
 
     /* ===== Scroll container fix for Chrome mobile address bar ===== */
-    /* Makes .backgrounds the scroll container instead of viewport */
+    /* Scoped to .is-blog-article so other pages aren't affected */
     @media (max-width: 49.99em) {
-      :global(html),
-      :global(body) {
+      :global(html.is-blog-article),
+      :global(html.is-blog-article) :global(body) {
         height: 100dvh;
         max-height: 100dvh;
         overflow: hidden;
       }
 
-      :global(.backgrounds) {
+      :global(html.is-blog-article) :global(.backgrounds) {
         height: 100dvh;
         max-height: 100dvh;
         overflow-y: auto;
@@ -541,11 +541,19 @@ const metadata = {
   </style>
 
   <script>
-    // ===== Hero image scroll animation (mobile only) =====
-    // Uses requestAnimationFrame + passive scroll for max performance
-    // Only mutates GPU-composited properties (transform, opacity)
-    // Guarded by matchMedia — activates/deactivates on viewport change
-    {
+    // ===== Blog article lifecycle (ViewTransitions compatible) =====
+    // Uses astro:page-load / astro:before-swap so state is properly
+    // initialized on every navigation and cleaned up when leaving.
+
+    let blogCleanup: (() => void) | null = null;
+
+    function initBlogArticle() {
+      // Tear down any previous instance first
+      if (blogCleanup) {
+        blogCleanup();
+        blogCleanup = null;
+      }
+
       const heroImage = document.getElementById(
         "blog-hero-image",
       ) as HTMLElement | null;
@@ -553,92 +561,95 @@ const metadata = {
         "blog-hero",
       ) as HTMLElement | null;
 
-      if (heroImage && heroContainer) {
-        const START_SCALE = 1.1;
-        const END_SCALE = 1.0;
-        const SCALE_RANGE = START_SCALE - END_SCALE;
-        const mobileQuery = window.matchMedia("(max-width: 49.99em)");
-
-        let ticking = false;
-        let lastScrollY = 0;
-        let listening = false;
-
-        // Use .backgrounds wrapper as scroll container (SO fix for Chrome mobile address bar)
-        const getScrollContainer = (): HTMLElement | Window => {
-          return (
-            (document.querySelector(".backgrounds") as HTMLElement) || window
-          );
-        };
-
-        const getScrollY = (): number => {
-          const container = getScrollContainer();
-          return container instanceof Window
-            ? container.scrollY
-            : container.scrollTop;
-        };
-
-        const updateHero = () => {
-          const heroHeight = heroContainer.offsetHeight;
-          const scrollY = lastScrollY;
-          const progress = Math.min(scrollY / heroHeight, 1);
-
-          const scale = START_SCALE - progress * SCALE_RANGE;
-          const opacity = 1 - progress * 0.85;
-
-          heroImage.style.setProperty("--hero-scale", String(scale));
-          heroImage.style.setProperty(
-            "--hero-opacity",
-            String(Math.max(opacity, 0)),
-          );
-
-          const nav = document.querySelector("nav");
-          if (nav) {
-            nav.classList.toggle("hero-scrolled", progress >= 0.85);
-          }
-
-          ticking = false;
-        };
-
-        const onScroll = () => {
-          lastScrollY = getScrollY();
-          if (!ticking) {
-            requestAnimationFrame(updateHero);
-            ticking = true;
-          }
-        };
-
-        const resetHero = () => {
-          heroImage.style.removeProperty("--hero-scale");
-          heroImage.style.removeProperty("--hero-opacity");
-          document.querySelector("nav")?.classList.remove("hero-scrolled");
-        };
-
-        const handleViewport = (e: MediaQueryList | MediaQueryListEvent) => {
-          if (e.matches && !listening) {
-            const container = getScrollContainer();
-            container.addEventListener("scroll", onScroll, { passive: true });
-            listening = true;
-            lastScrollY = getScrollY();
-            updateHero();
-          } else if (!e.matches && listening) {
-            const container = getScrollContainer();
-            container.removeEventListener("scroll", onScroll);
-            listening = false;
-            resetHero();
-          }
-        };
-
-        handleViewport(mobileQuery);
-        mobileQuery.addEventListener("change", handleViewport);
+      if (!heroImage || !heroContainer) {
+        // Not a blog article page — make sure class is removed
+        document.documentElement.classList.remove("is-blog-article");
+        return;
       }
-    }
 
-    // ===== Enhanced copy to clipboard for code blocks =====
-    document.addEventListener("DOMContentLoaded", () => {
+      // Mark page so CSS can scope sticky nav + scroll container
+      document.documentElement.classList.add("is-blog-article");
+
+      // ---- Hero scroll animation (mobile only) ----
+      const START_SCALE = 1.1;
+      const END_SCALE = 1.0;
+      const SCALE_RANGE = START_SCALE - END_SCALE;
+      const mobileQuery = window.matchMedia("(max-width: 49.99em)");
+
+      let ticking = false;
+      let lastScrollY = 0;
+      let listening = false;
+
+      const getScrollContainer = (): HTMLElement | Window => {
+        return (
+          (document.querySelector(".backgrounds") as HTMLElement) || window
+        );
+      };
+
+      const getScrollY = (): number => {
+        const container = getScrollContainer();
+        return container instanceof Window
+          ? container.scrollY
+          : container.scrollTop;
+      };
+
+      const updateHero = () => {
+        const heroHeight = heroContainer.offsetHeight;
+        const progress = Math.min(lastScrollY / heroHeight, 1);
+
+        const scale = START_SCALE - progress * SCALE_RANGE;
+        const opacity = 1 - progress * 0.85;
+
+        heroImage.style.setProperty("--hero-scale", String(scale));
+        heroImage.style.setProperty(
+          "--hero-opacity",
+          String(Math.max(opacity, 0)),
+        );
+
+        const nav = document.querySelector("nav");
+        if (nav) {
+          nav.classList.toggle("hero-scrolled", progress >= 0.85);
+        }
+
+        ticking = false;
+      };
+
+      const onScroll = () => {
+        lastScrollY = getScrollY();
+        if (!ticking) {
+          requestAnimationFrame(updateHero);
+          ticking = true;
+        }
+      };
+
+      const resetHero = () => {
+        heroImage.style.removeProperty("--hero-scale");
+        heroImage.style.removeProperty("--hero-opacity");
+        document.querySelector("nav")?.classList.remove("hero-scrolled");
+      };
+
+      const handleViewport = (e: MediaQueryList | MediaQueryListEvent) => {
+        if (e.matches && !listening) {
+          const container = getScrollContainer();
+          container.addEventListener("scroll", onScroll, { passive: true });
+          listening = true;
+          lastScrollY = getScrollY();
+          updateHero();
+        } else if (!e.matches && listening) {
+          const container = getScrollContainer();
+          container.removeEventListener("scroll", onScroll);
+          listening = false;
+          resetHero();
+        }
+      };
+
+      handleViewport(mobileQuery);
+      mobileQuery.addEventListener("change", handleViewport);
+
+      // ---- Copy to clipboard for code blocks ----
       const codeBlocks = document.querySelectorAll(".content pre");
 
       codeBlocks.forEach((block) => {
-        // Create a proper copy button
         const copyButton = document.createElement("button");
         copyButton.className = "copy-button";
         copyButton.innerHTML = `
@@ -649,7 +660,6 @@ const metadata = {
           <span class="copy-text">Copy</span>
         `;
 
-        // Style the copy button
         copyButton.style.cssText = `
           position: absolute;
           top: 0.75rem;
@@ -673,7 +683,6 @@ const metadata = {
         (block as HTMLElement).style.position = "relative";
         block.appendChild(copyButton);
 
-        // Show button on hover
         block.addEventListener("mouseenter", () => {
           copyButton.style.opacity = "1";
         });
@@ -682,7 +691,6 @@ const metadata = {
           copyButton.style.opacity = "0";
         });
 
-        // Copy functionality
         copyButton.addEventListener("click", async () => {
           const code = block.querySelector("code")?.textContent || "";
           const copyText = copyButton.querySelector(".copy-text");
@@ -690,27 +698,49 @@ const metadata = {
           try {
             await navigator.clipboard.writeText(code);
 
-            // Visual feedback
             copyButton.style.background = "var(--accent-regular)";
             copyButton.style.color = "var(--accent-text-over)";
             copyButton.style.borderColor = "var(--accent-dark)";
-            copyText.textContent = "Copied!";
+            if (copyText) copyText.textContent = "Copied!";
 
             setTimeout(() => {
               copyButton.style.background = "var(--gray-800)";
               copyButton.style.color = "var(--gray-300)";
               copyButton.style.borderColor = "var(--gray-700)";
-              copyText.textContent = "Copy";
+              if (copyText) copyText.textContent = "Copy";
             }, 2000);
           } catch (err) {
             console.error("Failed to copy text: ", err);
-            copyText.textContent = "Failed";
+            if (copyText) copyText.textContent = "Failed";
             setTimeout(() => {
-              copyText.textContent = "Copy";
+              if (copyText) copyText.textContent = "Copy";
             }, 2000);
           }
         });
       });
+
+      // ---- Store cleanup for when we leave this page ----
+      blogCleanup = () => {
+        mobileQuery.removeEventListener("change", handleViewport);
+        if (listening) {
+          const container = getScrollContainer();
+          container.removeEventListener("scroll", onScroll);
+          listening = false;
+        }
+        resetHero();
+        document.documentElement.classList.remove("is-blog-article");
+      };
+    }
+
+    // Fires on initial load AND after every ViewTransition navigation
+    document.addEventListener("astro:page-load", initBlogArticle);
+
+    // Clean up before ViewTransition swaps the page
+    document.addEventListener("astro:before-swap", () => {
+      if (blogCleanup) {
+        blogCleanup();
+        blogCleanup = null;
+      }
     });
   </script>
 </BaseLayout>
