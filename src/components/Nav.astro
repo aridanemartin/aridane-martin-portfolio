@@ -173,10 +173,18 @@ const iconLinks: {
 <style>
   nav {
     z-index: 9999;
-    position: relative;
+    position: sticky;
+    top: 0;
     font-family: var(--font-brand);
     font-weight: 500;
     margin-bottom: 0;
+  }
+
+  @media (min-width: 50em) {
+    nav {
+      position: relative;
+      top: auto;
+    }
   }
 
   .menu-header {
