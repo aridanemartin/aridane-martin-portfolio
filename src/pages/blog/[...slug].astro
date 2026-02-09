@@ -59,7 +59,7 @@ const metadata = {
         )
       }
       <header>
-        <div class="wrapper stack gap-2">
+        <div class="wrapper stack gap-1">
           <a class="back-link" href="/blog/"><Icon icon="arrow-left" /> blog</a>
           <Hero
             title={entry.data.title}
@@ -183,25 +183,22 @@ const metadata = {
       }
     }
 
-    /* ===== Nav hero-scrolled state (mobile only) ===== */
+    /* ===== Nav sticky on mobile (blog article pages) ===== */
+    @media (max-width: 49.99em) {
+      :global(nav) {
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+      }
+    }
+
+    /* ===== Nav hero-scrolled visual state (mobile only) ===== */
     :global(nav.hero-scrolled) {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 9999;
-      transform: translate3d(0, 0, 0);
-      -webkit-transform: translate3d(0, 0, 0);
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
       background: var(--gray-999);
       box-shadow: var(--shadow-md);
       transition:
         background 0.3s ease,
         box-shadow 0.3s ease;
-      height: auto;
-      min-height: 0;
-      contain: layout style;
     }
 
     :root:not(.theme-dark) :global(nav.hero-scrolled) {
@@ -595,18 +592,6 @@ const metadata = {
         const handleViewport = (e: MediaQueryList | MediaQueryListEvent) => {
           if (e.matches && !listening) {
             window.addEventListener("scroll", onScroll, { passive: true });
-            // Listen for visual viewport resize (Chrome address bar show/hide)
-            if (window.visualViewport) {
-              window.visualViewport.addEventListener("resize", () => {
-                const nav = document.querySelector("nav");
-                if (nav?.classList.contains("hero-scrolled")) {
-                  nav.style.transform = "translate3d(0, 0, 0)";
-                  requestAnimationFrame(() => {
-                    nav.style.transform = "translate3d(0, 0, 0)";
-                  });
-                }
-              });
-            }
             listening = true;
             lastScrollY = window.scrollY;
             updateHero();
