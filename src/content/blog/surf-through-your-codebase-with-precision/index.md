@@ -4,7 +4,10 @@ subtitle: "Master files and zones navigation 🏄🏼‍♀️"
 description: "Master VSCode navigation with precision. Learn to move between editor zones, manage tabs efficiently, and navigate files like a pro developer."
 publishDate: 2025-10-03
 timeToRead: 4
-tags: ["productivity", "vscode", "navigation"]
+tags:
+  - Productivity
+  - VS Code
+  - Navigation
 author: "Aridane Martín"
 img: "./_images/surfThroughCodebaseCover.webp"
 img_alt: "VSCode editor navigation and workflow for developers"

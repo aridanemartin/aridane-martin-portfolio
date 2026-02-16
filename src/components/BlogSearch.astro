@@ -1,0 +1,348 @@
+---
+import { getCollection } from "astro:content";
+
+const articles = (await getCollection("blog"))
+  .filter((article) => article.data.isActive !== false)
+  .sort((a, b) => {
+    const dateA = a.data.lastUpdateDate || a.data.publishDate;
+    const dateB = b.data.lastUpdateDate || b.data.publishDate;
+    return dateB.valueOf() - dateA.valueOf();
+  });
+
+const searchData = articles.map((article) => ({
+  slug: article.slug,
+  title: article.data.title,
+  description: article.data.description,
+  tags: article.data.tags,
+  publishDate: (
+    article.data.lastUpdateDate || article.data.publishDate
+  ).toISOString(),
+}));
+---
+
+<div
+  class="blog-search-container"
+  id="blog-search-root"
+  data-articles={JSON.stringify(searchData)}
+>
+  <form
+    id="blog-search-form"
+    toolname="search-blog"
+    tooldescription="Search blog articles by keyword. Matches against article titles, descriptions, and tags. Returns filtered blog posts."
+    toolautosubmit="true"
+  >
+    <div class="search-input-wrapper">
+      <svg
+        class="search-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input
+        type="text"
+        id="blog-search-input"
+        name="query"
+        placeholder="Search articles..."
+        autocomplete="off"
+        toolparamtitle="Search Query"
+        toolparamdescription="Keywords to search for in blog article titles, descriptions, and tags"
+      />
+      <button
+        type="button"
+        class="clear-btn"
+        id="clear-search"
+        aria-label="Clear search"
+        hidden
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <p class="search-results-count" id="search-results-count" hidden></p>
+  </form>
+</div>
+
+<script>
+  type BlogSearchItem = {
+    slug: string;
+    title: string;
+    description: string;
+    tags: string[];
+    publishDate: string;
+  };
+
+  function getSearchData(): BlogSearchItem[] {
+    const root = document.getElementById("blog-search-root");
+    if (!root?.dataset.articles) return [];
+    try {
+      return JSON.parse(root.dataset.articles);
+    } catch {
+      return [];
+    }
+  }
+
+  function initBlogSearch() {
+    const form = document.getElementById("blog-search-form") as HTMLFormElement;
+    const input = document.getElementById(
+      "blog-search-input",
+    ) as HTMLInputElement;
+    const resultsCount = document.getElementById(
+      "search-results-count",
+    ) as HTMLParagraphElement;
+
+    if (!form || !input || !resultsCount) return;
+
+    const clearBtn = document.getElementById(
+      "clear-search",
+    ) as HTMLButtonElement;
+    let debounceTimer: ReturnType<typeof setTimeout>;
+    const searchData = getSearchData();
+
+    function filterArticles(query: string) {
+      const normalizedQuery = query.toLowerCase().trim();
+      const blogItems = document.querySelectorAll(".blog-list > li");
+
+      if (!normalizedQuery) {
+        blogItems.forEach((item) => {
+          (item as HTMLElement).style.display = "";
+        });
+        resultsCount.hidden = true;
+        if (clearBtn) clearBtn.hidden = true;
+        return searchData;
+      }
+      const keywords = normalizedQuery.split(/\s+/);
+      let visibleCount = 0;
+
+      const matchedArticles: BlogSearchItem[] = [];
+
+      blogItems.forEach((item, index) => {
+        const articleData = searchData[index];
+        if (!articleData) return;
+
+        const searchableText = [
+          articleData.title,
+          articleData.description,
+          ...articleData.tags,
+        ]
+          .join(" ")
+          .toLowerCase();
+
+        const matches = keywords.every((keyword) =>
+          searchableText.includes(keyword),
+        );
+
+        if (matches) {
+          (item as HTMLElement).style.display = "";
+          visibleCount++;
+          matchedArticles.push(articleData);
+        } else {
+          (item as HTMLElement).style.display = "none";
+        }
+      });
+
+      resultsCount.textContent =
+        visibleCount === 0
+          ? "No articles found"
+          : `${visibleCount} article${visibleCount !== 1 ? "s" : ""} found`;
+      resultsCount.hidden = false;
+      if (clearBtn) clearBtn.hidden = false;
+
+      return matchedArticles;
+    }
+
+    // Live filtering on input with debounce
+    input.addEventListener("input", () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        filterArticles(input.value);
+      }, 250);
+    });
+
+    // Clear button
+    if (clearBtn) {
+      clearBtn.addEventListener("click", () => {
+        input.value = "";
+        filterArticles("");
+        input.focus();
+      });
+    }
+
+    // Agent-aware form submission (WebMCP)
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const query = input.value;
+      const results = filterArticles(query);
+
+      // When an agent invokes this tool, return structured data
+      if ((event as any).agentInvoked) {
+        (event as any).respondWith(
+          Promise.resolve({
+            query,
+            resultCount: results.length,
+            articles: results.map((a) => ({
+              title: a.title,
+              description: a.description,
+              tags: a.tags,
+              url: `/blog/${a.slug}`,
+              publishDate: a.publishDate,
+            })),
+          }),
+        );
+      }
+    });
+
+    // Register imperative WebMCP tool for richer agent interactions
+    if ("modelContext" in navigator) {
+      (navigator as any).modelContext.registerTool({
+        name: "search-blog",
+        description:
+          "Search blog articles by keyword. Matches against article titles, descriptions, and tags. Returns a list of matching articles with their URLs.",
+        inputSchema: {
+          type: "object",
+          properties: {
+            query: {
+              type: "string",
+              description:
+                "Keywords to search for in blog article titles, descriptions, and tags",
+            },
+          },
+          required: ["query"],
+        },
+        execute: async (params: { query: string }) => {
+          input.value = params.query;
+          const results = filterArticles(params.query);
+          return {
+            query: params.query,
+            resultCount: results.length,
+            articles: results.map((a) => ({
+              title: a.title,
+              description: a.description,
+              tags: a.tags,
+              url: `/blog/${a.slug}`,
+              publishDate: a.publishDate,
+            })),
+          };
+        },
+      });
+    }
+  }
+
+  // Run on initial load and after View Transitions
+  initBlogSearch();
+  document.addEventListener("astro:after-swap", initBlogSearch);
+</script>
+
+<style>
+  .blog-search-container {
+    width: 100%;
+  }
+
+  #blog-search-form {
+    width: 100%;
+  }
+
+  .search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 1rem;
+    color: var(--gray-400);
+    pointer-events: none;
+    transition: color var(--theme-transition);
+  }
+
+  #blog-search-input {
+    width: 100%;
+    padding: 0.875rem 2.75rem 0.875rem 3rem;
+    font-size: var(--text-base);
+    font-family: var(--font-body);
+    color: var(--gray-0);
+    background: var(--gray-999);
+    border: 1px solid var(--gray-800);
+    border-radius: 0.75rem;
+    outline: none;
+    transition:
+      border-color var(--theme-transition),
+      box-shadow var(--theme-transition),
+      background var(--theme-transition);
+  }
+
+  #blog-search-input::placeholder {
+    color: var(--gray-500);
+  }
+
+  #blog-search-input:focus {
+    border-color: var(--accent-regular);
+    box-shadow: 0 0 0 3px var(--accent-overlay);
+  }
+
+  .search-results-count {
+    margin-top: 0.5rem;
+    font-size: var(--text-sm);
+    color: var(--gray-400);
+    padding-left: 0.25rem;
+  }
+
+  .clear-btn {
+    position: absolute;
+    right: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    background: none;
+    border: none;
+    color: var(--gray-400);
+    cursor: pointer;
+    border-radius: 0.375rem;
+    transition:
+      color var(--theme-transition),
+      background var(--theme-transition);
+  }
+
+  .clear-btn:hover {
+    color: var(--gray-0);
+    background: var(--gray-800);
+  }
+
+  /* WebMCP: visual feedback when an agent is filling the form */
+  #blog-search-form:tool-form-active {
+    outline: 2px solid var(--accent-regular);
+    border-radius: 0.75rem;
+  }
+
+  #blog-search-form:tool-form-active .search-icon {
+    color: var(--accent-regular);
+  }
+
+  @media (min-width: 50em) {
+    #blog-search-input {
+      font-size: var(--text-md);
+    }
+  }
+</style>

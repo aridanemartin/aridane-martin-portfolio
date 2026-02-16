@@ -6,7 +6,10 @@ publishDate: 2025-10-10
 lastUpdateDate: 2025-10-15
 timeToRead: 5
 isActive: true
-tags: ["prompting", "ai", "copilot"]
+tags:
+  - Prompting
+  - AI
+  - GitHub Copilot
 author: "Aridane Martín"
 img: "./_images/githubCopilotPromptingStrategiesCover.webp"
 img_alt: "GitHub Copilot strategies and AI assistance for developers"

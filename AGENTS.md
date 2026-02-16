@@ -29,6 +29,7 @@ When performing these tasks, automatically load the corresponding skill:
 |------|---------------|
 | Creating a new skill | `.github/skills/skill-creator/SKILL.md` |
 | Creating or editing blog articles | `src/content/blog/_AGENTS.md` |
+| Writing a new blog article from a topic or links | `.github/skills/article-creator/SKILL.md` |
 
 ## Content Structure
 

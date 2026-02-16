@@ -5,7 +5,10 @@ description: "Master terminal productivity with keyboard shortcuts, aliases, and
 publishDate: 2025-11-22
 timeToRead: 6
 isActive: true
-tags: ["productivity", "terminal", "keyboard"]
+tags:
+  - Productivity
+  - Terminal
+  - Keyboard
 author: "Aridane Martín"
 img: "./_images/enhanceTerminalProductivityCover.webp"
 img_alt: "Terminal productivity and keyboard shortcuts for developers"

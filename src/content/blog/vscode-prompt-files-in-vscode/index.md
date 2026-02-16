@@ -5,7 +5,11 @@ description: "Learn how to create and execute custom prompts in VS Code using th
 publishDate: 2025-12-10
 timeToRead: 4
 isActive: true
-tags: ["vscode", "copilot", "productivity", "prompts"]
+tags:
+  - VS Code
+  - GitHub Copilot
+  - Productivity
+  - Prompts
 author: "Aridane Martín"
 img: "./_images/vscodePromptFilesCover.webp"
 img_alt: "VS Code prompt files configuration and execution"

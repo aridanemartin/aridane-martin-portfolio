@@ -4,7 +4,12 @@ subtitle: "Master the art of dynamic context 🎯"
 description: "Deep dive into Agent Skills best practices, real-world patterns, editor conventions, npm-like installation workflows, and security considerations for building production-ready AI workflows."
 publishDate: 2026-01-18
 timeToRead: 6
-tags: ["productivity", "AI", "copilot", "agents", "SKILL.md"]
+tags:
+  - Productivity
+  - AI
+  - GitHub Copilot
+  - Agents
+  - SKILL.md
 author: "Aridane Martín"
 img: "./_images/agentSkillsBestPracticesCover.webp"
 img_alt: "Advanced Agent Skills patterns and architecture for AI-assisted development"

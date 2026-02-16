@@ -6,7 +6,11 @@ publishDate: 2025-10-02
 lastUpdateDate: 2025-10-02
 timeToRead: 6
 isActive: true
-tags: ["copilot", "ai", "best-practices", "prompting"]
+tags:
+  - GitHub Copilot
+  - AI
+  - Best Practices
+  - Prompting
 author: "Aridane Martín"
 img: "./_images/commonMistakesGithubCopilotCover.webp"
 img_alt: "Common mistakes developers make when using GitHub Copilot"

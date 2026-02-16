@@ -5,7 +5,10 @@ description: "Master VSCode shortcuts and build muscle memory for efficient codi
 publishDate: 2025-10-04
 lastUpdateDate: 2025-10-06
 timeToRead: 5
-tags: ["productivity", "vscode", "shortcuts"]
+tags:
+  - Productivity
+  - VS Code
+  - Shortcuts
 author: "Aridane Martín"
 img: "./_images/rethinkVscodeShortcutsSnippetsCover.webp"
 img_alt: "VSCode shortcuts and keyboard productivity for developers"

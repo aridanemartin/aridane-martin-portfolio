@@ -4,7 +4,12 @@ subtitle: "Learn to feed the beast! 🤖"
 description: "Learn how to create AI agents that understand your entire codebase using Repomix and GitHub Copilot. Build intelligent assistants for your development team."
 publishDate: 2025-10-13
 timeToRead: 4
-tags: ["productivity", "ai", "copilot", "agents", "repomix"]
+tags:
+  - Productivity
+  - AI
+  - GitHub Copilot
+  - Agents
+  - Repomix
 author: "Aridane Martín"
 img: "./_images/createFirstCopilotAgentCover.webp"
 img_alt: "Creating AI agents with Copilot and Repomix for codebase understanding"
