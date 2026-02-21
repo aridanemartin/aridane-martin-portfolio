@@ -32,6 +32,7 @@ const { title, description, image, imageAlt, publishDate, author, tags, type } =
   <body>
     <div class="stack backgrounds">
       <Nav />
+      <div class="nav-spacer" aria-hidden="true"></div>
       <slot />
       <Footer />
     </div>
@@ -39,7 +40,7 @@ const { title, description, image, imageAlt, publishDate, author, tags, type } =
     <script>
       // Add “loaded” class once the document has completely loaded.
       addEventListener("load", () =>
-        document.documentElement.classList.add("loaded")
+        document.documentElement.classList.add("loaded"),
       );
     </script>
 
@@ -87,7 +88,22 @@ const { title, description, image, imageAlt, publishDate, author, tags, type } =
         --bg-image-footer: url("/assets/backgrounds/bg-footer-dark-800w.jpg");
       }
 
+      .nav-spacer {
+        height: 7rem;
+        flex-shrink: 0;
+      }
+
+      @media (max-width: 49.99em) {
+        :global(html.is-blog-article) .nav-spacer {
+          height: 5rem;
+        }
+      }
+
       @media (min-width: 50em) {
+        .nav-spacer {
+          height: 9.125rem; /* desktop nav height (5.625rem) + original margin-bottom (3.5rem) */
+        }
+
         :root {
           --bg-scale: 1;
           --bg-image-main: url("/assets/backgrounds/bg-main-light-1440w.jpg");
