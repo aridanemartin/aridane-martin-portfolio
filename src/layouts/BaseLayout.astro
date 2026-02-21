@@ -64,9 +64,7 @@ const { title, description, image, imageAlt, publishDate, author, tags, type } =
         --bg-aspect-ratio: calc(var(--bg-image-aspect-ratio) / var(--bg-scale));
         --bg-gradient-size: calc(var(--bg-scale) * 100%);
         --button-main-color: var(--accent-dark);
-        --button-main-color-filter: drop-shadow(
-          1.5px 1.5px 3px var(--accent-dark)
-        );
+        --button-main-color-filter: invert(1);
         --filter-invert: none;
       }
 
@@ -134,8 +132,7 @@ const { title, description, image, imageAlt, publishDate, author, tags, type } =
         :root {
           --bg-scale: 1;
           --bg-image-main: url("/assets/backgrounds/bg-main-light-1440w.jpg");
-          --button-main-color-filter: invert(40%) sepia(60%) saturate(4600%)
-            hue-rotate(243deg) brightness(48%) contrast(100%);
+          --button-main-color-filter: invert(1);
         }
         :root.theme-dark {
           --bg-image-main: url("/assets/backgrounds/bg-main-dark-1440w.jpg");

@@ -427,13 +427,14 @@ const iconLinks: {
     color: var(--gray-0);
   }
 
-  /* Light mode: logo and hamburger adapt when nav becomes opaque on scroll */
-  :global(:root:not(.theme-dark)) nav.hero-scrolled .main-logo {
-    filter: invert(1);
+  /* Light mode: logo and hamburger always show in their scrolled state */
+  :global(:root:not(.theme-dark)) .menu-button {
+    color: var(--gray-0);
   }
 
-  :global(:root:not(.theme-dark)) nav.hero-scrolled .menu-button {
-    color: var(--gray-0);
+  :global(:root:not(.theme-dark)) .main-logo,
+  :global(:root:not(.theme-dark)) .menu-button {
+    opacity: 0.75;
   }
 
   /* Mobile: use named scroll timeline since .backgrounds is the scroll
@@ -441,27 +442,6 @@ const iconLinks: {
   @media (max-width: 49.99em) {
     nav {
       animation-timeline: --page-scroll;
-    }
-
-    :global(:root:not(.theme-dark)) .main-logo {
-      animation: logo-light-scrolled linear both;
-      animation-timeline: --page-scroll;
-      animation-range: 0px 80px;
-    }
-
-    @keyframes logo-light-scrolled {
-      to { filter: invert(1); }
-    }
-
-    :global(:root:not(.theme-dark)) .menu-button {
-      animation: btn-light-scrolled linear both;
-      animation-timeline: --page-scroll;
-      animation-range: 0px 80px;
-    }
-
-    @keyframes btn-light-scrolled {
-      from { color: var(--gray-900); }
-      to { color: var(--gray-0); }
     }
   }
 
