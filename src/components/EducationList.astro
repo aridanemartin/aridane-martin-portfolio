@@ -18,8 +18,40 @@ const restItems = educationContent.slice(3);
 </ul>
 
 <style>
-  details summary:hover {
+  details summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8em;
+    font-size: var(--text-base);
+    font-weight: 600;
+    line-height: 1.1;
+    list-style: none;
+    background: linear-gradient(to right, #ca7879, var(--accent-regular), var(--accent-dark), #ca7879);
+    background-size: 200% auto;
+    background-position: 0% center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.4s ease;
     cursor: pointer;
+  }
+
+  :global(.theme-dark) details summary {
+    background-position: 100% center;
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details summary:hover,
+  details summary:focus-visible {
+    background-position: 100% center;
+  }
+
+  :global(.theme-dark) details summary:hover,
+  :global(.theme-dark) details summary:focus-visible {
+    background-position: 0% center;
   }
 
   .education-item-list {

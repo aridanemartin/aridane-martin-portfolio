@@ -1,6 +1,6 @@
 ---
-import { Image } from 'astro:assets';
-import flagIcon from '../../public/assets/icons/flag.png';
+import { Image } from "astro:assets";
+import flagIcon from "../../public/assets/icons/flag.png";
 
 const { content } = Astro.props;
 ---
@@ -44,23 +44,89 @@ const { content } = Astro.props;
     list-style: none;
     padding: 0;
     margin: 0;
+    position: relative;
+    display: flow-root; /* contain floated children so ::before spans full height */
+  }
+
+  /* Single continuous dashed line down the center */
+  .timeline-list::before {
+    content: '';
+    position: absolute;
+    left: calc(50% - 1px);
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      var(--gray-200) 0px,
+      var(--gray-200) 6px,
+      transparent 6px,
+      transparent 12px
+    );
+  }
+
+  @keyframes reveal-from-right {
+    from {
+      opacity: 0;
+      transform: translateX(3rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes reveal-from-left {
+    from {
+      opacity: 0;
+      transform: translateX(-3rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   .timeline-item {
-    width: calc(50% + 1.5px); /* 50% + 3px border */
+    width: 50%;
     padding-bottom: 50px;
     position: relative;
+
+    /* Dot marker at the center line */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 1.5rem;
+      z-index: 1;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-regular);
+      border: 2px solid var(--gray-999);
+    }
 
     &:nth-child(odd) {
       float: right;
       clear: both;
-      border-left: 2px dashed var(--gray-200);
+      animation: reveal-from-right linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 50%;
+
+      &::before {
+        left: -5px;
+      }
     }
 
     &:nth-child(even) {
       float: left;
       clear: both;
-      border-right: 2px dashed var(--gray-200);
+      animation: reveal-from-left linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 50%;
+
+      &::before {
+        right: -5px;
+      }
     }
 
     &:first-child .timeline-item-content {
@@ -69,7 +135,7 @@ const { content } = Astro.props;
   }
 
   .timeline-flag-icon {
-    filter: var(--filter-invert);
+    filter: var(--icon-accent-filter);
   }
 
   .timeline-title-wrapper {
@@ -80,6 +146,25 @@ const { content } = Astro.props;
 
   .timeline-title {
     font-size: var(--text-lg);
+    background: linear-gradient(to right, #ca7879, var(--accent-regular), var(--accent-dark), #ca7879);
+    background-size: 200% auto;
+    background-position: 0% center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.4s ease;
+  }
+
+  :global(.theme-dark) .timeline-title {
+    background-position: 100% center;
+  }
+
+  .timeline-item:hover .timeline-title {
+    background-position: 100% center;
+  }
+
+  :global(.theme-dark) .timeline-item:hover .timeline-title {
+    background-position: 0% center;
   }
 
   .timeline-item-content {
@@ -105,14 +190,35 @@ const { content } = Astro.props;
     margin-top: 0.5rem;
   }
 
-  @media (width < 768px) {
-    .timeline-item {
-      border-left: 2px solid var(--gray-200);
-      width: 100%;
+  @keyframes reveal-from-bottom {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
+  @media (width < 768px) {
+    .timeline-list::before {
+      left: 0;
+    }
+
+    .timeline-item {
+      width: 100%;
+      padding-left: 1.5rem;
+
+      &:nth-child(odd),
       &:nth-child(even) {
-        border-right: none;
-        border-left: 2px dashed var(--gray-200);
+        animation-name: reveal-from-bottom;
+        animation-range: entry 20% entry 60%;
+
+        &::before {
+          left: -5px;
+          right: auto;
+        }
       }
     }
 

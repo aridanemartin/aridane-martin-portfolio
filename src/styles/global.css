@@ -256,7 +256,13 @@ h5 {
   gap: 3.75rem;
 }
 .gap-20 {
-  gap: 5rem;
+  gap: 2.5rem;
+}
+
+@media (min-width: 50em) {
+  .gap-20 {
+    gap: 5rem;
+  }
 }
 .gap-30 {
   gap: 7.5rem;
