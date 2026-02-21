@@ -36,7 +36,7 @@ Here are the tools that will revolutionize your desktop workflow:
 
 [Rectangle app](https://www.rectangleapp.com) is a powerful tool for window management. Here are some of the shortcuts I actually use in my daily workflow:
 
-![Rectangle shortcuts](/assets/blog/desktop-flow-for-developers/rectangle-shortcuts.png)
+![Rectangle shortcuts](/assets/blog/desktop-flow-for-developers/rectangle-shortcuts.webp)
 
 
 
