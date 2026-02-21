@@ -204,23 +204,14 @@ const metadata = {
 
     /* ===== Nav hero-scrolled visual state (mobile only) ===== */
     :global(nav.hero-scrolled) {
-      background: var(--gray-999);
-      box-shadow: var(--shadow-md);
+      background: hsla(var(--gray-999-basis), 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       transition:
         background 0.3s ease,
+        backdrop-filter 0.3s ease,
         box-shadow 0.3s ease;
-    }
-
-    :root:not(.theme-dark) :global(nav.hero-scrolled) {
-      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
-    }
-
-    :root:not(.theme-dark) :global(nav.hero-scrolled .main-logo) {
-      filter: invert(1);
-    }
-
-    :root:not(.theme-dark) :global(nav.hero-scrolled .menu-button) {
-      color: var(--gray-0);
     }
 
     /* ===== Header & Content ===== */

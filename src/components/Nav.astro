@@ -196,6 +196,24 @@ const iconLinks: {
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(128, 128, 128, 0.12);
+    animation: nav-solidify linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0px 80px;
+  }
+
+  @keyframes nav-solidify {
+    from {
+      background: hsla(var(--gray-999-basis), 0.5);
+      backdrop-filter: blur(16px);
+      border-bottom-color: rgba(128, 128, 128, 0.12);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0);
+    }
+    to {
+      background: hsla(var(--gray-999-basis), 0.85);
+      backdrop-filter: blur(8px);
+      border-bottom-color: transparent;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
   }
 
   .menu-header {
@@ -207,6 +225,7 @@ const iconLinks: {
 
   .main-logo {
     filter: var(--button-main-color-filter);
+    transition: filter 0.3s ease;
   }
 
   .site-title {
@@ -228,6 +247,7 @@ const iconLinks: {
     color: var(--gray-900);
     background: transparent;
     box-shadow: none;
+    transition: color 0.3s ease;
   }
 
   .menu-button[aria-expanded="true"] {
@@ -405,6 +425,39 @@ const iconLinks: {
 
   :global(:root.theme-dark) .menu-button {
     color: var(--gray-0);
+  }
+
+  /* Light mode: logo and hamburger adapt when nav becomes opaque on scroll */
+  :global(:root:not(.theme-dark)) nav.hero-scrolled .main-logo {
+    filter: invert(1);
+  }
+
+  :global(:root:not(.theme-dark)) nav.hero-scrolled .menu-button {
+    color: var(--gray-0);
+  }
+
+  /* Same for pages using CSS scroll animation (non-article, mobile) */
+  @media (max-width: 49.99em) {
+    :global(:root:not(.theme-dark)) .main-logo {
+      animation: logo-light-scrolled linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0px 80px;
+    }
+
+    @keyframes logo-light-scrolled {
+      to { filter: invert(1); }
+    }
+
+    :global(:root:not(.theme-dark)) .menu-button {
+      animation: btn-light-scrolled linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0px 80px;
+    }
+
+    @keyframes btn-light-scrolled {
+      from { color: var(--gray-900); }
+      to { color: var(--gray-0); }
+    }
   }
 
 </style>
