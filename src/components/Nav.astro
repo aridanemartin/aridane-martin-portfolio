@@ -436,11 +436,16 @@ const iconLinks: {
     color: var(--gray-0);
   }
 
-  /* Same for pages using CSS scroll animation (non-article, mobile) */
+  /* Mobile: use named scroll timeline since .backgrounds is the scroll
+     container (not root) to fix Chrome address bar resize jank. */
   @media (max-width: 49.99em) {
+    nav {
+      animation-timeline: --page-scroll;
+    }
+
     :global(:root:not(.theme-dark)) .main-logo {
       animation: logo-light-scrolled linear both;
-      animation-timeline: scroll(root);
+      animation-timeline: --page-scroll;
       animation-range: 0px 80px;
     }
 
@@ -450,7 +455,7 @@ const iconLinks: {
 
     :global(:root:not(.theme-dark)) .menu-button {
       animation: btn-light-scrolled linear both;
-      animation-timeline: scroll(root);
+      animation-timeline: --page-scroll;
       animation-range: 0px 80px;
     }
 

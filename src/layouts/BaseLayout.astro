@@ -45,6 +45,11 @@ const { title, description, image, imageAlt, publishDate, author, tags, type } =
     </script>
 
     <style>
+      /* Make named scroll timeline accessible to fixed nav */
+      html {
+        timeline-scope: --page-scroll;
+      }
+
       :root {
         --_placeholder-bg: linear-gradient(transparent, transparent);
         --bg-image-main: url("/assets/backgrounds/bg-main-light-800w.jpg");
@@ -86,6 +91,28 @@ const { title, description, image, imageAlt, publishDate, author, tags, type } =
         --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-dark-800w.jpg");
         --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-dark-800w.jpg");
         --bg-image-footer: url("/assets/backgrounds/bg-footer-dark-800w.jpg");
+      }
+
+      /* Mobile: make .backgrounds the scroll container to prevent Chrome
+         address bar resize from shifting content. Uses a named scroll timeline
+         so the fixed nav can still animate based on scroll position. */
+      @media (max-width: 49.99em) {
+        html,
+        body {
+          height: 100dvh;
+          max-height: 100dvh;
+          overflow: hidden;
+        }
+
+        .backgrounds {
+          height: 100dvh;
+          max-height: 100dvh;
+          overflow-y: auto;
+          overflow-x: hidden;
+          -webkit-overflow-scrolling: touch;
+          scroll-timeline-name: --page-scroll;
+          scroll-timeline-axis: block;
+        }
       }
 
       .nav-spacer {
