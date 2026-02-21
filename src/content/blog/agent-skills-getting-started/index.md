@@ -12,6 +12,7 @@ tags:
 author: "Aridane Martín"
 img: ./_images/agentSkillsGettingStartedCover.webp
 img_alt: AI generated image of three beavers fixing a computer
+ogImage: "/assets/og/agentSkillsGettingStartedCover.jpg"
 ---
 
 If you've been working with AI coding assistants, you've probably encountered the challenge of providing context: either you dump everything into a massive system prompt, or the AI lacks the specialized knowledge it needs for specific tasks.

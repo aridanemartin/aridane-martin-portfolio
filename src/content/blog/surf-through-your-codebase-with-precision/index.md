@@ -11,6 +11,7 @@ tags:
 author: "Aridane Martín"
 img: "./_images/surfThroughCodebaseCover.webp"
 img_alt: "VSCode editor navigation and workflow for developers"
+ogImage: "/assets/og/surfThroughCodebaseCover.jpg"
 ---
 
 **Author:** Aridane Martín  

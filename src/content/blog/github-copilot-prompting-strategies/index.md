@@ -13,6 +13,7 @@ tags:
 author: "Aridane Martín"
 img: "./_images/githubCopilotPromptingStrategiesCover.webp"
 img_alt: "GitHub Copilot strategies and AI assistance for developers"
+ogImage: "/assets/og/githubCopilotPromptingStrategiesCover.jpg"
 ---
 
 **Author:** Aridane Martín  

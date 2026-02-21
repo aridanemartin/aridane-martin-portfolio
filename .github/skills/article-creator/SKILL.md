@@ -1,19 +1,11 @@
 ---
 name: article-creator
-description: Create new blog articles by researching a topic on the web or using provided links, then writing
-  a complete article matching the site's existing style and conventions. Use when the user asks to
-  "write an article", "create a blog post", "draft a post about…", or provides links to research
-  and turn into an article.
+description: Create new blog articles by researching a topic on the web or using provided links, and writing a complete, publish-ready article that matches the voice, structure, and conventions of existing articles on the site.
 license: MIT
 metadata:
   author: aridane-martin
   version: "1.0"
   scope: root
-allowed-tools:
-  - read
-  - write
-  - edit
-  - fetch_webpage
 ---
 
 # Article Creator
@@ -156,17 +148,19 @@ img_alt: "Descriptive alt text for accessibility"
 
 4. **Create `_images/` directory** (cover image will need to be added manually by the user)
 
-5. **Notify the user** that they need to add a cover image at:
-   `src/content/blog/<article-slug>/_images/<articleSlugCamelCase>Cover.webp`
-   - Recommended dimensions: 1200×630px
-   - Format: WebP preferred
+5. **Notify the user** that they need to add cover images at:
+  `src/content/blog/<article-slug>/_images/<articleSlugCamelCase>Cover.webp` (for web)
+  `src/content/blog/<article-slug>/_images/<articleSlugCamelCase>Cover.jpg` (for OG/meta tags)
+  - Recommended dimensions: 1200×630px
+  - Formats: WebP (for web) and JPG (for OG/meta tags)
 
 ### Step 7: Validate
 
 Run through the pre-publish checklist:
 
 - [ ] Frontmatter complete with all required fields
-- [ ] Cover image path uses relative format: `./_images/nameCover.webp`
+- [ ] Cover image paths use relative format: `./_images/nameCover.webp` (for web) and `./_images/nameCover.jpg` (for OG)
+- [ ] Both .webp and .jpg versions of the cover image are present for each article
 - [ ] Tags are lowercase and consistent with existing articles
 - [ ] Internal links use correct format: `/blog/slug`
 - [ ] Code blocks have language hints

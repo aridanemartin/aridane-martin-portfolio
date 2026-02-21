@@ -31,7 +31,7 @@ const wasUpdatedInLastSixMonths =
 const metadata = {
   title: entry.data.title,
   description: entry.data.description,
-  image: entry.data.img?.src,
+  image: entry.data.ogImage || entry.data.img?.src,
   imageAlt: entry.data.img_alt,
   publishDate: entry.data.publishDate,
   author: entry.data.author,

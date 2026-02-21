@@ -14,6 +14,7 @@ tags:
 author: "Aridane Martín"
 img: "./_images/commonMistakesGithubCopilotCover.webp"
 img_alt: "Common mistakes developers make when using GitHub Copilot"
+ogImage: "/assets/og/commonMistakesGithubCopilotCover.jpg"
 ---
 
 **Author:** Aridane Martín  

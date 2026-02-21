@@ -11,6 +11,7 @@ tags:
 author: "Aridane Martín"
 img: ./_images/gettingStartedWithWebmcpCover.webp
 img_alt: "Illustration of a browser window communicating directly with an AI agent through structured tool contracts"
+ogImage: "/assets/og/gettingStartedWithWebmcpCover.jpg"
 ---
 
 If you've been following the AI agents space, you've probably seen them interact with websites the same way a blindfolded person navigates a room — clicking around, taking screenshots, scraping the DOM, and hoping the layout didn't change since last Tuesday.

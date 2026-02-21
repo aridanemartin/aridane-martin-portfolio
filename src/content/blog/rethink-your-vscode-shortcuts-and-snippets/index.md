@@ -12,6 +12,7 @@ tags:
 author: "Aridane Martín"
 img: "./_images/rethinkVscodeShortcutsSnippetsCover.webp"
 img_alt: "VSCode shortcuts and keyboard productivity for developers"
+ogImage: "/assets/og/rethinkVscodeShortcutsSnippetsCover.jpg"
 ---
 
 **Author:** Aridane Martín  

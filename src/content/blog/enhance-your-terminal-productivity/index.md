@@ -12,6 +12,7 @@ tags:
 author: "Aridane Martín"
 img: "./_images/enhanceTerminalProductivityCover.webp"
 img_alt: "Terminal productivity and keyboard shortcuts for developers"
+ogImage: "/assets/og/enhanceTerminalProductivityCover.jpg"
 ---
 
 **Author:** Aridane Martín  

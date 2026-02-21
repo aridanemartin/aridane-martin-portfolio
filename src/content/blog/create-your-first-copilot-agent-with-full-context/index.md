@@ -13,6 +13,7 @@ tags:
 author: "Aridane Martín"
 img: "./_images/createFirstCopilotAgentCover.webp"
 img_alt: "Creating AI agents with Copilot and Repomix for codebase understanding"
+ogImage: "/assets/og/createFirstCopilotAgentCover.jpg"
 ---
 
 **Author:** Aridane Martín  

@@ -11,6 +11,7 @@ tags:
 author: "Aridane Martín"
 img: "./_images/desktopFlowForDevelopersCover.webp"
 img_alt: "Desktop flow tools for developers - Rectangle shortcuts and window management"
+ogImage: "/assets/og/desktopFlowForDevelopersCover.jpg"
 ---
 
 **Author:** Aridane Martín  

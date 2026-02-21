@@ -13,6 +13,7 @@ tags:
 author: "Aridane Martín"
 img: "./_images/vscodePromptFilesCover.webp"
 img_alt: "VS Code prompt files configuration and execution"
+ogImage: "/assets/og/vscodePromptFilesCover.jpg"
 ---
 
 **Author:** Aridane Martín  

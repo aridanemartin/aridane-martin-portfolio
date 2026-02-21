@@ -28,6 +28,7 @@ export const collections = {
         author: z.string().optional(),
         img: image(),
         img_alt: z.string().optional(),
+        ogImage: z.string().optional(),
       }),
   }),
 };

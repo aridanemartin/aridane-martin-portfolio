@@ -13,6 +13,7 @@ tags:
 author: "Aridane Martín"
 img: "./_images/agentSkillsBestPracticesCover.webp"
 img_alt: "Advanced Agent Skills patterns and architecture for AI-assisted development"
+ogImage: "/assets/og/agentSkillsBestPracticesCover.jpg"
 ---
 
 This is Part 2 of the Agent Skills series. If you're new to Agent Skills, start with [Part 1: Getting Started with SKILL.md](/blog/agent-skills-getting-started) to learn the fundamentals: what SKILL.md is, how progressive disclosure works, and when to use skills vs. rules.
