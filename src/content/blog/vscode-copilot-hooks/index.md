@@ -1,6 +1,6 @@
 ---
-title: "VS Code Copilot Hooks: Take Control of Your AI Agent"
-subtitle: "The missing guardrails for your AI-powered workflow 🎣"
+title: "Copilot Hooks Preview: Master lifecycle control over your AI agent"
+subtitle: "trigger → condition → action 🎣"
 description: "Learn how VS Code Copilot hooks let you run shell commands at key agent lifecycle points — block dangerous operations, auto-format code, inject context, and build audit trails."
 publishDate: 2026-02-21
 timeToRead: 7
