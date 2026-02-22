@@ -31,7 +31,7 @@ const { title, description, image, imageAlt, publishDate, author, tags, type } =
   </head>
   <body>
     <div class="stack backgrounds">
-      <Nav />
+      <Nav showProgressBar={type === "article"} />
       <div class="nav-spacer" aria-hidden="true"></div>
       <slot />
       <Footer />

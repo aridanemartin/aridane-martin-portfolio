@@ -5,6 +5,12 @@ import Icon from "./Icon.astro";
 import type { iconPaths } from "./IconPaths";
 import ThemeToggle from "./ThemeToggle.astro";
 
+interface Props {
+  showProgressBar?: boolean;
+}
+
+const { showProgressBar = false } = Astro.props;
+
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
   { label: "Home", href: "/" },
@@ -91,6 +97,7 @@ const iconLinks: {
       </div>
     </div>
   </noscript>
+  {showProgressBar && <div class="progress-bar" aria-hidden="true" />}
   <div id="menu-content" hidden>
     <ul class="nav-items">
       {
@@ -159,14 +166,18 @@ const iconLinks: {
           menu.classList.remove("is-open");
           menu.addEventListener(
             "transitionend",
-            () => { if (!menu.classList.contains("is-open")) menu.hidden = true; },
-            { once: true }
+            () => {
+              if (!menu.classList.contains("is-open")) menu.hidden = true;
+            },
+            { once: true },
           );
         }
       };
 
       // Toggle menu visibility when the menu button is clicked.
-      btn.addEventListener("click", () => setExpanded(!menu.classList.contains("is-open")));
+      btn.addEventListener("click", () =>
+        setExpanded(!menu.classList.contains("is-open")),
+      );
 
       // Hide menu button for large screens.
       const handleViewports = (e: MediaQueryList | MediaQueryListEvent) => {
@@ -195,7 +206,6 @@ const iconLinks: {
     background: hsla(var(--gray-999-basis), 0.5);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(128, 128, 128, 0.12);
     animation: nav-solidify linear both;
     animation-timeline: scroll(root);
     animation-range: 0px 80px;
@@ -432,12 +442,37 @@ const iconLinks: {
     color: var(--gray-0);
   }
 
+  .progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--accent-dark), #ca7879);
+    transform-origin: left center;
+    transform: scaleX(0);
+    animation: progress-grow auto linear;
+    animation-timeline: scroll(root);
+  }
+
+  @keyframes progress-grow {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
   /* Mobile: use named scroll timeline since .backgrounds is the scroll
      container (not root) to fix Chrome address bar resize jank. */
   @media (max-width: 49.99em) {
     nav {
       animation-timeline: --page-scroll;
     }
-  }
 
+    .progress-bar {
+      animation-timeline: --page-scroll;
+    }
+  }
 </style>
