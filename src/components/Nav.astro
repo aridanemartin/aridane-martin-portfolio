@@ -190,6 +190,23 @@ const iconLinks: {
     }
   }
   customElements.define("menu-button", MenuButton);
+
+  if (!document.documentElement.dataset.backToTopBound) {
+    document.documentElement.dataset.backToTopBound = "true";
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const trigger = target.closest("[data-back-to-top]");
+      if (!trigger) return;
+
+      // On mobile the scroll container is .backgrounds, on desktop it's the root.
+      const mobileScroller = document.querySelector(".backgrounds");
+      const isMobile = window.matchMedia("(max-width: 49.99em)").matches;
+      const scrollTarget = isMobile && mobileScroller ? mobileScroller : window;
+      scrollTarget.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 </script>
 
 <style>
@@ -474,5 +491,6 @@ const iconLinks: {
     .progress-bar {
       animation-timeline: --page-scroll;
     }
+
   }
 </style>

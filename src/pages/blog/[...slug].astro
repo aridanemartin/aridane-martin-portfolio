@@ -113,6 +113,16 @@ const metadata = {
           <div class="content">
             <Content />
           </div>
+          <div class="article-back-to-top">
+            <button
+              type="button"
+              class="article-back-to-top__button"
+              aria-label="Back to top"
+              data-back-to-top
+            >
+              <Icon icon="arrow-up" size="1.2em" />
+            </button>
+          </div>
         </div>
       </main>
       <ContactCTA />
@@ -256,6 +266,36 @@ const metadata = {
     .content {
       max-width: 65ch;
       margin-inline: auto;
+    }
+
+    .article-back-to-top {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .article-back-to-top__button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, var(--accent-dark), #ca7879);
+      color: var(--gray-999);
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .article-back-to-top__button:hover,
+    .article-back-to-top__button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      outline: 2px solid var(--accent-regular);
+      outline-offset: 2px;
     }
 
     /* Responsive content width for smaller screens */
