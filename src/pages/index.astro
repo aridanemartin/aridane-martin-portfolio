@@ -6,6 +6,7 @@ import CallToAction from "../components/CallToAction.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Grid from "../components/Grid.astro";
 import Hero from "../components/Hero.astro";
+import { HeroVariant } from "../components/Hero.constants";
 import Icon from "../components/Icon.astro";
 import Pill from "../components/Pill.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
@@ -24,9 +25,11 @@ const projects = (await getCollection("work"))
     <div class="wrapper stack gap-12 lg:gap-20">
       <header class="hero">
         <Hero
-          title="Hello, my name is Aridane Martín"
+          title="Hello, my name is"
+          titleHighlight="Aridane Martín"
           tagline="I am a Software Developer who is currently based in Canary Islands, Spain."
           align="start"
+          variant={HeroVariant.MAIN}
         >
           <div class="hero-cta">
             <CallToAction href="/about/">

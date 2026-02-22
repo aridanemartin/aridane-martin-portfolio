@@ -1,5 +1,4 @@
-/* Global variables */
-:root {
+/* Global variables */ :root {
   /* Colors */
   --gray-0: #090b11;
   --gray-50: #141925;
@@ -51,6 +50,15 @@
     var(--accent-dark)
   );
   --gradient-stroke: linear-gradient(180deg, var(--gray-900), var(--gray-700));
+
+  --color-main-title-sentence: var(--accent-dark);
+  --color-main-title-name: linear-gradient(
+    to left,
+    var(--accent-dark),
+    var(--accent-regular) 40%,
+    #ca7879 90%
+  );
+  --color-section-title: var(--accent-dark);
 
   /* Shadows */
   --shadow-sm:
@@ -131,6 +139,9 @@
     var(--accent-light)
   );
   --gradient-stroke: linear-gradient(180deg, var(--gray-600), var(--gray-800));
+  --color-section-title: linear-gradient(to right, var(--accent-dark), #ca7879);
+  --color-main-title-sentence: var(--gray-0);
+  --color-main-title-name: linear-gradient(to right, var(--accent-dark), #ca7879);
 
   --shadow-sm:
     0px 6px 3px rgba(255, 255, 255, 0.01),

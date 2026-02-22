@@ -1,18 +1,27 @@
 ---
+import { HeroVariant, type HeroVariantType } from "./Hero.constants";
+
 interface Props {
   title: string;
+  titleHighlight?: string;
   subtitle?: string;
   tagline?: string;
   align?: "start" | "center";
+  variant?: HeroVariantType;
 }
 
-const { align = "center", tagline, title, subtitle } = Astro.props;
+const { align = "center", tagline, title, titleHighlight, subtitle, variant = HeroVariant.SECTION } = Astro.props;
 ---
 
 <div class:list={["hero stack gap-4", align]}>
   <div class="stack gap-2">
     <div class="title-group">
-      <h1 class="title">{title}</h1>
+      <h1 class:list={["title", variant]}>
+        {variant === HeroVariant.MAIN && titleHighlight
+          ? <><span class="title-sentence">{title} </span><span class="title-name">{titleHighlight}</span></>
+          : title
+        }
+      </h1>
       {subtitle && <h2 class="subtitle">{subtitle}</h2>}
     </div>
     {tagline && <p class="tagline">{tagline}</p>}
@@ -37,8 +46,28 @@ const { align = "center", tagline, title, subtitle } = Astro.props;
     max-width: 21ch;
     margin-inline: auto;
     font-size: var(--text-2xl);
-    color: var(--gray-0);
     text-align: center;
+  }
+
+  .title.main .title-sentence {
+    background: var(--color-main-title-sentence);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .title.main .title-name {
+    background: var(--color-main-title-name);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .title.section {
+    background: var(--color-section-title);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .subtitle {
